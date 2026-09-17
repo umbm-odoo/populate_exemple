@@ -1,10 +1,18 @@
 {
     'name': 'Populate Demo',
-    'summary': 'Sandbox blueprint to try out the populate module',
+    'summary': 'Wingardium Odoosa BI talk - historical transactional blueprint',
     'category': 'Hidden/Tools',
-    'depends': ['populate', 'sale', 'account'],
+    'depends': [
+        'populate',
+        'sale_stock',
+        'sale_mrp',
+        'purchase_stock',
+        'mrp_account',
+        'crm',
+        'sale_crm',
+        'account_budget',
+    ],
     'data': [
-        'populate/demo_partner.xml',
-        'populate/sale_invoices_5y.xml',
+        'populate/fixture.xml',
     ],
 }

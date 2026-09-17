@@ -1,0 +1,723 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="blueprint_fixture" model="populate.blueprint">
+        <field name="name">Wingardium Odoosa BI - Minimal fixture (spec section 15)</field>
+        <field name="definition_xml" type="xml">
+            <create model="crm.lead" count="1" id="fx_so_1_lead">
+                <field name="name" eval="'Opportunity - BE / purchased / completed+invoiced+PAID (2018, mid-period)'"/>
+                <field name="type" eval="'opportunity'"/>
+                <field name="partner_id" eval="env.ref('__import__.cust_c19').id"/>
+                <field name="team_id" eval="env.ref('__import__.team_gryffindor').id"/>
+                <field name="user_id" eval="env.ref('__import__.user_g_1').id"/>
+                <field name="source_id" eval="env.ref('__import__.bi_source_prophet').id"/>
+                <field name="medium_id" eval="env.ref('__import__.bi_medium_print').id"/>
+                <field name="stage_id" eval="env.ref('__import__.bi_crm_new').id"/>
+            </create>
+
+            <create model="crm.lead" count="1" id="fx_so_2_lead">
+                <field name="name" eval="'Opportunity - BE / manufactured / completed+invoiced+UNPAID (2026, near cutoff)'"/>
+                <field name="type" eval="'opportunity'"/>
+                <field name="partner_id" eval="env.ref('__import__.cust_i05').id"/>
+                <field name="team_id" eval="env.ref('__import__.team_gryffindor').id"/>
+                <field name="user_id" eval="env.ref('__import__.user_g_1').id"/>
+                <field name="source_id" eval="env.ref('__import__.bi_source_web').id"/>
+                <field name="medium_id" eval="env.ref('__import__.bi_medium_web').id"/>
+                <field name="stage_id" eval="env.ref('__import__.bi_crm_new').id"/>
+            </create>
+
+            <create model="crm.lead" count="1" id="fx_so_3_lead">
+                <field name="name" eval="'Opportunity - UK / purchased + manufactured / completed WITH transit (2022)'"/>
+                <field name="type" eval="'opportunity'"/>
+                <field name="partner_id" eval="env.ref('__import__.cust_c01').id"/>
+                <field name="team_id" eval="env.ref('__import__.team_gryffindor').id"/>
+                <field name="user_id" eval="env.ref('__import__.user_g_1').id"/>
+                <field name="source_id" eval="env.ref('__import__.bi_source_owl').id"/>
+                <field name="medium_id" eval="env.ref('__import__.bi_medium_email').id"/>
+                <field name="stage_id" eval="env.ref('__import__.bi_crm_new').id"/>
+            </create>
+
+            <create model="crm.lead" count="1" id="fx_so_4_lead">
+                <field name="name" eval="'Opportunity - US / manufactured + purchased / OUTSTANDING, transit UNFINISHED at cutoff (2026)'"/>
+                <field name="type" eval="'opportunity'"/>
+                <field name="partner_id" eval="env.ref('__import__.cust_c09').id"/>
+                <field name="team_id" eval="env.ref('__import__.team_gryffindor').id"/>
+                <field name="user_id" eval="env.ref('__import__.user_g_1').id"/>
+                <field name="source_id" eval="env.ref('__import__.bi_source_prophet').id"/>
+                <field name="medium_id" eval="env.ref('__import__.bi_medium_print').id"/>
+                <field name="stage_id" eval="env.ref('__import__.bi_crm_new').id"/>
+            </create>
+
+            <create model="crm.lead" count="1" id="fx_so_5_lead">
+                <field name="name" eval="'Opportunity - SG / purchased + manufactured / completed (2023)'"/>
+                <field name="type" eval="'opportunity'"/>
+                <field name="partner_id" eval="env.ref('__import__.cust_c21').id"/>
+                <field name="team_id" eval="env.ref('__import__.team_gryffindor').id"/>
+                <field name="user_id" eval="env.ref('__import__.user_g_1').id"/>
+                <field name="source_id" eval="env.ref('__import__.bi_source_referral').id"/>
+                <field name="medium_id" eval="env.ref('__import__.bi_medium_referral').id"/>
+                <field name="stage_id" eval="env.ref('__import__.bi_crm_new').id"/>
+            </create>
+
+            <create model="crm.lead" count="1" id="fx_so_7_lead">
+                <field name="name" eval="'Opportunity - CANCELLED quotation (never confirmed, 2024)'"/>
+                <field name="type" eval="'opportunity'"/>
+                <field name="partner_id" eval="env.ref('__import__.cust_c17').id"/>
+                <field name="team_id" eval="env.ref('__import__.team_gryffindor').id"/>
+                <field name="user_id" eval="env.ref('__import__.user_g_1').id"/>
+                <field name="source_id" eval="env.ref('__import__.bi_source_prophet').id"/>
+                <field name="medium_id" eval="env.ref('__import__.bi_medium_print').id"/>
+                <field name="stage_id" eval="env.ref('__import__.bi_crm_new').id"/>
+            </create>
+
+            <create model="crm.lead" count="1" id="fx_so_9_lead">
+                <field name="name" eval="'Opportunity - OPEN quotation (within last 60 days of scenario, 2026)'"/>
+                <field name="type" eval="'opportunity'"/>
+                <field name="partner_id" eval="env.ref('__import__.cust_i05').id"/>
+                <field name="team_id" eval="env.ref('__import__.team_gryffindor').id"/>
+                <field name="user_id" eval="env.ref('__import__.user_g_1').id"/>
+                <field name="source_id" eval="env.ref('__import__.bi_source_web').id"/>
+                <field name="medium_id" eval="env.ref('__import__.bi_medium_web').id"/>
+                <field name="stage_id" eval="env.ref('__import__.bi_crm_new').id"/>
+            </create>
+
+            <create model="crm.lead" count="1" id="fx_so_10_lead">
+                <field name="name" eval="'Opportunity - December/January year-boundary (confirm 2025-12-28, complete 2026-01)'"/>
+                <field name="type" eval="'opportunity'"/>
+                <field name="partner_id" eval="env.ref('__import__.cust_c31').id"/>
+                <field name="team_id" eval="env.ref('__import__.team_gryffindor').id"/>
+                <field name="user_id" eval="env.ref('__import__.user_g_1').id"/>
+                <field name="source_id" eval="env.ref('__import__.bi_source_owl').id"/>
+                <field name="medium_id" eval="env.ref('__import__.bi_medium_email').id"/>
+                <field name="stage_id" eval="env.ref('__import__.bi_crm_new').id"/>
+            </create>
+
+            <create model="crm.lead" count="1" id="fx_so_11_lead">
+                <field name="name" eval="'Opportunity - 1-20 September cutoff-window order, completed within 2026 scenario (back-to-school)'"/>
+                <field name="type" eval="'opportunity'"/>
+                <field name="partner_id" eval="env.ref('__import__.cust_c03').id"/>
+                <field name="team_id" eval="env.ref('__import__.team_gryffindor').id"/>
+                <field name="user_id" eval="env.ref('__import__.user_g_1').id"/>
+                <field name="source_id" eval="env.ref('__import__.bi_source_prophet').id"/>
+                <field name="medium_id" eval="env.ref('__import__.bi_medium_print').id"/>
+                <field name="stage_id" eval="env.ref('__import__.bi_crm_new').id"/>
+            </create>
+
+            <create model="crm.lead" count="1" id="fx_so_12_lead">
+                <field name="name" eval="'Opportunity - OUTSTANDING - awaiting production in Belgium (2026)'"/>
+                <field name="type" eval="'opportunity'"/>
+                <field name="partner_id" eval="env.ref('__import__.cust_c33').id"/>
+                <field name="team_id" eval="env.ref('__import__.team_gryffindor').id"/>
+                <field name="user_id" eval="env.ref('__import__.user_g_1').id"/>
+                <field name="source_id" eval="env.ref('__import__.bi_source_owl').id"/>
+                <field name="medium_id" eval="env.ref('__import__.bi_medium_email').id"/>
+                <field name="stage_id" eval="env.ref('__import__.bi_crm_new').id"/>
+            </create>
+
+            <create model="crm.lead" count="1" id="fx_so_13_lead">
+                <field name="name" eval="'Opportunity - OUTSTANDING - awaiting purchased components/goods (2026)'"/>
+                <field name="type" eval="'opportunity'"/>
+                <field name="partner_id" eval="env.ref('__import__.cust_c32').id"/>
+                <field name="team_id" eval="env.ref('__import__.team_gryffindor').id"/>
+                <field name="user_id" eval="env.ref('__import__.user_g_1').id"/>
+                <field name="source_id" eval="env.ref('__import__.bi_source_prophet').id"/>
+                <field name="medium_id" eval="env.ref('__import__.bi_medium_print').id"/>
+                <field name="stage_id" eval="env.ref('__import__.bi_crm_new').id"/>
+            </create>
+
+            <create model="sale.order" count="1" id="fx_so_1">
+                <!-- BE / purchased / completed+invoiced+PAID (2018, mid-period) -->
+                <field name="partner_id" eval="env.ref('__import__.cust_c19').id"/>
+                <field name="warehouse_id" eval="env.ref('stock.warehouse0').id"/>
+                <field name="date_order" eval="'2018-03-08 10:00:00'"/>
+                <field name="team_id" eval="env.ref('__import__.team_gryffindor').id"/>
+                <field name="user_id" eval="env.ref('__import__.user_g_1').id"/>
+                <field name="opportunity_id" generator="relation.one" ref="fx_so_1_lead"/>
+                <field name="source_id" eval="env.ref('__import__.bi_source_prophet').id"/>
+                <field name="medium_id" eval="env.ref('__import__.bi_medium_print').id"/>
+            </create>
+
+            <create model="sale.order.line" count="1" id="fx_so_1_lines">
+                <field name="order_id" generator="relation.one" ref="fx_so_1"/>
+                <value name="_products" eval="[env.ref('__import__.prod_nimbus').id]"/>
+                <value name="_qtys" eval="[3]"/>
+                <field name="sequence" generator="misc.counter" start="1"/>
+                <field name="product_id" eval="_products[sequence - 1]"/>
+                <field name="product_uom_qty" eval="_qtys[sequence - 1]"/>
+            </create>
+
+            <create model="sale.order" count="1" id="fx_so_2">
+                <!-- BE / manufactured / completed+invoiced+UNPAID (2026, near cutoff) -->
+                <field name="partner_id" eval="env.ref('__import__.cust_i05').id"/>
+                <field name="warehouse_id" eval="env.ref('stock.warehouse0').id"/>
+                <field name="date_order" eval="'2026-08-28 10:00:00'"/>
+                <field name="team_id" eval="env.ref('__import__.team_gryffindor').id"/>
+                <field name="user_id" eval="env.ref('__import__.user_g_1').id"/>
+                <field name="opportunity_id" generator="relation.one" ref="fx_so_2_lead"/>
+                <field name="source_id" eval="env.ref('__import__.bi_source_web').id"/>
+                <field name="medium_id" eval="env.ref('__import__.bi_medium_web').id"/>
+            </create>
+
+            <create model="sale.order.line" count="1" id="fx_so_2_lines">
+                <field name="order_id" generator="relation.one" ref="fx_so_2"/>
+                <value name="_products" eval="[env.ref('__import__.prod_felix').id]"/>
+                <value name="_qtys" eval="[2]"/>
+                <field name="sequence" generator="misc.counter" start="1"/>
+                <field name="product_id" eval="_products[sequence - 1]"/>
+                <field name="product_uom_qty" eval="_qtys[sequence - 1]"/>
+            </create>
+
+            <create model="sale.order" count="1" id="fx_so_3">
+                <!-- UK / purchased + manufactured / completed WITH transit (2022) -->
+                <field name="partner_id" eval="env.ref('__import__.cust_c01').id"/>
+                <field name="warehouse_id" eval="env.ref('__import__.bi_wh_uk').id"/>
+                <field name="date_order" eval="'2022-06-05 10:00:00'"/>
+                <field name="team_id" eval="env.ref('__import__.team_gryffindor').id"/>
+                <field name="user_id" eval="env.ref('__import__.user_g_1').id"/>
+                <field name="opportunity_id" generator="relation.one" ref="fx_so_3_lead"/>
+                <field name="source_id" eval="env.ref('__import__.bi_source_owl').id"/>
+                <field name="medium_id" eval="env.ref('__import__.bi_medium_email').id"/>
+            </create>
+
+            <create model="sale.order.line" count="2" id="fx_so_3_lines">
+                <field name="order_id" generator="relation.one" ref="fx_so_3"/>
+                <value name="_products" eval="[env.ref('__import__.prod_firebolt').id, env.ref('__import__.prod_wand_holly').id]"/>
+                <value name="_qtys" eval="[1, 1]"/>
+                <field name="sequence" generator="misc.counter" start="1"/>
+                <field name="product_id" eval="_products[sequence - 1]"/>
+                <field name="product_uom_qty" eval="_qtys[sequence - 1]"/>
+            </create>
+
+            <create model="sale.order" count="1" id="fx_so_4">
+                <!-- US / manufactured + purchased / OUTSTANDING, transit UNFINISHED at cutoff (2026) -->
+                <field name="partner_id" eval="env.ref('__import__.cust_c09').id"/>
+                <field name="warehouse_id" eval="env.ref('__import__.bi_wh_us').id"/>
+                <field name="date_order" eval="'2026-08-18 10:00:00'"/>
+                <field name="team_id" eval="env.ref('__import__.team_gryffindor').id"/>
+                <field name="user_id" eval="env.ref('__import__.user_g_1').id"/>
+                <field name="opportunity_id" generator="relation.one" ref="fx_so_4_lead"/>
+                <field name="source_id" eval="env.ref('__import__.bi_source_prophet').id"/>
+                <field name="medium_id" eval="env.ref('__import__.bi_medium_print').id"/>
+            </create>
+
+            <create model="sale.order.line" count="2" id="fx_so_4_lines">
+                <field name="order_id" generator="relation.one" ref="fx_so_4"/>
+                <value name="_products" eval="[env.ref('__import__.prod_wand_elder').id, env.ref('__import__.prod_nimbus').id]"/>
+                <value name="_qtys" eval="[1, 2]"/>
+                <field name="sequence" generator="misc.counter" start="1"/>
+                <field name="product_id" eval="_products[sequence - 1]"/>
+                <field name="product_uom_qty" eval="_qtys[sequence - 1]"/>
+            </create>
+
+            <create model="sale.order" count="1" id="fx_so_5">
+                <!-- SG / purchased + manufactured / completed (2023) -->
+                <field name="partner_id" eval="env.ref('__import__.cust_c21').id"/>
+                <field name="warehouse_id" eval="env.ref('__import__.bi_wh_sg').id"/>
+                <field name="date_order" eval="'2023-11-05 10:00:00'"/>
+                <field name="team_id" eval="env.ref('__import__.team_gryffindor').id"/>
+                <field name="user_id" eval="env.ref('__import__.user_g_1').id"/>
+                <field name="opportunity_id" generator="relation.one" ref="fx_so_5_lead"/>
+                <field name="source_id" eval="env.ref('__import__.bi_source_referral').id"/>
+                <field name="medium_id" eval="env.ref('__import__.bi_medium_referral').id"/>
+            </create>
+
+            <create model="sale.order.line" count="2" id="fx_so_5_lines">
+                <field name="order_id" generator="relation.one" ref="fx_so_5"/>
+                <value name="_products" eval="[env.ref('__import__.prod_chocolate_frog').id, env.ref('__import__.prod_polyjuice').id]"/>
+                <value name="_qtys" eval="[10, 2]"/>
+                <field name="sequence" generator="misc.counter" start="1"/>
+                <field name="product_id" eval="_products[sequence - 1]"/>
+                <field name="product_uom_qty" eval="_qtys[sequence - 1]"/>
+            </create>
+
+            <create model="sale.order" count="1" id="fx_so_6">
+                <!-- Direct international BEFORE regional warehouses existed (2017, BE->US direct) -->
+                <field name="partner_id" eval="env.ref('__import__.cust_c10').id"/>
+                <field name="warehouse_id" eval="env.ref('stock.warehouse0').id"/>
+                <field name="date_order" eval="'2017-05-25 10:00:00'"/>
+                <field name="team_id" eval="env.ref('__import__.team_gryffindor').id"/>
+                <field name="user_id" eval="env.ref('__import__.user_g_1').id"/>
+            </create>
+
+            <create model="sale.order.line" count="1" id="fx_so_6_lines">
+                <field name="order_id" generator="relation.one" ref="fx_so_6"/>
+                <value name="_products" eval="[env.ref('__import__.prod_gillyweed').id]"/>
+                <value name="_qtys" eval="[20]"/>
+                <field name="sequence" generator="misc.counter" start="1"/>
+                <field name="product_id" eval="_products[sequence - 1]"/>
+                <field name="product_uom_qty" eval="_qtys[sequence - 1]"/>
+            </create>
+
+            <create model="sale.order" count="1" id="fx_so_7">
+                <!-- CANCELLED quotation (never confirmed, 2024) -->
+                <field name="partner_id" eval="env.ref('__import__.cust_c17').id"/>
+                <field name="warehouse_id" eval="env.ref('stock.warehouse0').id"/>
+                <field name="date_order" eval="'2024-05-10 10:00:00'"/>
+                <field name="team_id" eval="env.ref('__import__.team_gryffindor').id"/>
+                <field name="user_id" eval="env.ref('__import__.user_g_1').id"/>
+                <field name="opportunity_id" generator="relation.one" ref="fx_so_7_lead"/>
+                <field name="source_id" eval="env.ref('__import__.bi_source_prophet').id"/>
+                <field name="medium_id" eval="env.ref('__import__.bi_medium_print').id"/>
+            </create>
+
+            <create model="sale.order.line" count="1" id="fx_so_7_lines">
+                <field name="order_id" generator="relation.one" ref="fx_so_7"/>
+                <value name="_products" eval="[env.ref('__import__.prod_nimbus').id]"/>
+                <value name="_qtys" eval="[1]"/>
+                <field name="sequence" generator="misc.counter" start="1"/>
+                <field name="product_id" eval="_products[sequence - 1]"/>
+                <field name="product_uom_qty" eval="_qtys[sequence - 1]"/>
+            </create>
+
+            <create model="sale.order" count="1" id="fx_so_8">
+                <!-- CANCELLED confirmed order (before procurement, 2025, unlinked/direct) -->
+                <field name="partner_id" eval="env.ref('__import__.cust_c20').id"/>
+                <field name="warehouse_id" eval="env.ref('stock.warehouse0').id"/>
+                <field name="date_order" eval="'2025-01-28 10:00:00'"/>
+                <field name="team_id" eval="env.ref('__import__.team_gryffindor').id"/>
+                <field name="user_id" eval="env.ref('__import__.user_g_1').id"/>
+            </create>
+
+            <create model="sale.order.line" count="1" id="fx_so_8_lines">
+                <field name="order_id" generator="relation.one" ref="fx_so_8"/>
+                <value name="_products" eval="[env.ref('__import__.prod_polyjuice').id]"/>
+                <value name="_qtys" eval="[3]"/>
+                <field name="sequence" generator="misc.counter" start="1"/>
+                <field name="product_id" eval="_products[sequence - 1]"/>
+                <field name="product_uom_qty" eval="_qtys[sequence - 1]"/>
+            </create>
+
+            <create model="sale.order" count="1" id="fx_so_9">
+                <!-- OPEN quotation (within last 60 days of scenario, 2026) -->
+                <field name="partner_id" eval="env.ref('__import__.cust_i05').id"/>
+                <field name="warehouse_id" eval="env.ref('stock.warehouse0').id"/>
+                <field name="date_order" eval="'2026-08-25 10:00:00'"/>
+                <field name="team_id" eval="env.ref('__import__.team_gryffindor').id"/>
+                <field name="user_id" eval="env.ref('__import__.user_g_1').id"/>
+                <field name="opportunity_id" generator="relation.one" ref="fx_so_9_lead"/>
+                <field name="source_id" eval="env.ref('__import__.bi_source_web').id"/>
+                <field name="medium_id" eval="env.ref('__import__.bi_medium_web').id"/>
+            </create>
+
+            <create model="sale.order.line" count="1" id="fx_so_9_lines">
+                <field name="order_id" generator="relation.one" ref="fx_so_9"/>
+                <value name="_products" eval="[env.ref('__import__.prod_wand_holly').id]"/>
+                <value name="_qtys" eval="[1]"/>
+                <field name="sequence" generator="misc.counter" start="1"/>
+                <field name="product_id" eval="_products[sequence - 1]"/>
+                <field name="product_uom_qty" eval="_qtys[sequence - 1]"/>
+            </create>
+
+            <create model="sale.order" count="1" id="fx_so_10">
+                <!-- December/January year-boundary (confirm 2025-12-28, complete 2026-01) -->
+                <field name="partner_id" eval="env.ref('__import__.cust_c31').id"/>
+                <field name="warehouse_id" eval="env.ref('stock.warehouse0').id"/>
+                <field name="date_order" eval="'2025-12-22 10:00:00'"/>
+                <field name="team_id" eval="env.ref('__import__.team_gryffindor').id"/>
+                <field name="user_id" eval="env.ref('__import__.user_g_1').id"/>
+                <field name="opportunity_id" generator="relation.one" ref="fx_so_10_lead"/>
+                <field name="source_id" eval="env.ref('__import__.bi_source_owl').id"/>
+                <field name="medium_id" eval="env.ref('__import__.bi_medium_email').id"/>
+            </create>
+
+            <create model="sale.order.line" count="1" id="fx_so_10_lines">
+                <field name="order_id" generator="relation.one" ref="fx_so_10"/>
+                <value name="_products" eval="[env.ref('__import__.prod_nimbus').id]"/>
+                <value name="_qtys" eval="[2]"/>
+                <field name="sequence" generator="misc.counter" start="1"/>
+                <field name="product_id" eval="_products[sequence - 1]"/>
+                <field name="product_uom_qty" eval="_qtys[sequence - 1]"/>
+            </create>
+
+            <create model="sale.order" count="1" id="fx_so_11">
+                <!-- 1-20 September cutoff-window order, completed within 2026 scenario (back-to-school) -->
+                <field name="partner_id" eval="env.ref('__import__.cust_c03').id"/>
+                <field name="warehouse_id" eval="env.ref('__import__.bi_wh_uk').id"/>
+                <field name="date_order" eval="'2026-09-02 10:00:00'"/>
+                <field name="team_id" eval="env.ref('__import__.team_gryffindor').id"/>
+                <field name="user_id" eval="env.ref('__import__.user_g_1').id"/>
+                <field name="opportunity_id" generator="relation.one" ref="fx_so_11_lead"/>
+                <field name="source_id" eval="env.ref('__import__.bi_source_prophet').id"/>
+                <field name="medium_id" eval="env.ref('__import__.bi_medium_print').id"/>
+            </create>
+
+            <create model="sale.order.line" count="1" id="fx_so_11_lines">
+                <field name="order_id" generator="relation.one" ref="fx_so_11"/>
+                <value name="_products" eval="[env.ref('__import__.prod_wand_elder').id]"/>
+                <value name="_qtys" eval="[1]"/>
+                <field name="sequence" generator="misc.counter" start="1"/>
+                <field name="product_id" eval="_products[sequence - 1]"/>
+                <field name="product_uom_qty" eval="_qtys[sequence - 1]"/>
+            </create>
+
+            <create model="sale.order" count="1" id="fx_so_12">
+                <!-- OUTSTANDING - awaiting production in Belgium (2026) -->
+                <field name="partner_id" eval="env.ref('__import__.cust_c33').id"/>
+                <field name="warehouse_id" eval="env.ref('stock.warehouse0').id"/>
+                <field name="date_order" eval="'2026-08-12 10:00:00'"/>
+                <field name="team_id" eval="env.ref('__import__.team_gryffindor').id"/>
+                <field name="user_id" eval="env.ref('__import__.user_g_1').id"/>
+                <field name="opportunity_id" generator="relation.one" ref="fx_so_12_lead"/>
+                <field name="source_id" eval="env.ref('__import__.bi_source_owl').id"/>
+                <field name="medium_id" eval="env.ref('__import__.bi_medium_email').id"/>
+            </create>
+
+            <create model="sale.order.line" count="1" id="fx_so_12_lines">
+                <field name="order_id" generator="relation.one" ref="fx_so_12"/>
+                <value name="_products" eval="[env.ref('__import__.prod_polyjuice').id]"/>
+                <value name="_qtys" eval="[1]"/>
+                <field name="sequence" generator="misc.counter" start="1"/>
+                <field name="product_id" eval="_products[sequence - 1]"/>
+                <field name="product_uom_qty" eval="_qtys[sequence - 1]"/>
+            </create>
+
+            <create model="sale.order" count="1" id="fx_so_13">
+                <!-- OUTSTANDING - awaiting purchased components/goods (2026) -->
+                <field name="partner_id" eval="env.ref('__import__.cust_c32').id"/>
+                <field name="warehouse_id" eval="env.ref('stock.warehouse0').id"/>
+                <field name="date_order" eval="'2026-08-08 10:00:00'"/>
+                <field name="team_id" eval="env.ref('__import__.team_gryffindor').id"/>
+                <field name="user_id" eval="env.ref('__import__.user_g_1').id"/>
+                <field name="opportunity_id" generator="relation.one" ref="fx_so_13_lead"/>
+                <field name="source_id" eval="env.ref('__import__.bi_source_prophet').id"/>
+                <field name="medium_id" eval="env.ref('__import__.bi_medium_print').id"/>
+            </create>
+
+            <create model="sale.order.line" count="1" id="fx_so_13_lines">
+                <field name="order_id" generator="relation.one" ref="fx_so_13"/>
+                <value name="_products" eval="[env.ref('__import__.prod_nimbus').id]"/>
+                <value name="_qtys" eval="[4]"/>
+                <field name="sequence" generator="misc.counter" start="1"/>
+                <field name="product_id" eval="_products[sequence - 1]"/>
+                <field name="product_uom_qty" eval="_qtys[sequence - 1]"/>
+            </create>
+
+            <function model="sale.order" name="_populate_confirm" ref="fx_so_6" batched="True">
+                <arg name="date" eval="'2017-06-01 10:00:00'"/>
+            </function>
+
+            <function model="purchase.order" name="_populate_confirm"
+                      domain="[('state', '=', 'draft'), ('origin', 'like', 'S00006')]" batched="True">
+                <arg name="date" eval="'2017-06-02 09:00:00'"/>
+            </function>
+
+            <function model="stock.picking" name="_populate_validate"
+                      domain="[('state', 'not in', ('done', 'cancel')), ('picking_type_id.code', '=', 'incoming'), ('purchase_id.origin', 'like', 'S00006')]" batched="True">
+                <arg name="date" eval="'2017-06-09 14:00:00'"/>
+            </function>
+
+            <function model="stock.picking" name="_populate_validate"
+                      domain="[('state', 'not in', ('done', 'cancel')), ('picking_type_id.code', '=', 'outgoing'), ('origin', 'like', 'S00006')]" batched="True">
+                <arg name="date" eval="'2017-06-17 15:00:00'"/>
+            </function>
+
+            <function model="sale.order" name="_create_invoices" ref="fx_so_6" batched="True"/>
+
+            <function model="account.move" name="_populate_post"
+                      domain="[('state', '=', 'draft'), ('move_type', '=', 'out_invoice'), ('invoice_origin', 'like', 'S00006')]" batched="True">
+                <arg name="date" eval="'2017-06-18'"/>
+            </function>
+
+            <function model="account.move" name="_populate_register_payment"
+                      domain="[('state', '=', 'posted'), ('payment_state', 'not in', ('paid', 'in_payment', 'reversed')), ('move_type', '=', 'out_invoice'), ('invoice_origin', 'like', 'S00006')]" batched="True">
+                <arg name="date" eval="'2017-07-05'"/>
+            </function>
+
+            <function model="sale.order" name="_populate_confirm" ref="fx_so_1" batched="True">
+                <arg name="date" eval="'2018-03-12 10:00:00'"/>
+            </function>
+
+            <function model="crm.lead" name="_populate_win" ref="fx_so_1_lead" batched="True">
+                <arg name="date" eval="'2018-03-12 10:00:00'"/>
+            </function>
+
+            <function model="purchase.order" name="_populate_confirm"
+                      domain="[('state', '=', 'draft'), ('origin', 'like', 'S00001')]" batched="True">
+                <arg name="date" eval="'2018-03-13 09:00:00'"/>
+            </function>
+
+            <function model="stock.picking" name="_populate_validate"
+                      domain="[('state', 'not in', ('done', 'cancel')), ('picking_type_id.code', '=', 'incoming'), ('purchase_id.origin', 'like', 'S00001')]" batched="True">
+                <arg name="date" eval="'2018-03-20 14:00:00'"/>
+            </function>
+
+            <function model="stock.picking" name="_populate_validate"
+                      domain="[('state', 'not in', ('done', 'cancel')), ('picking_type_id.code', '=', 'outgoing'), ('origin', 'like', 'S00001')]" batched="True">
+                <arg name="date" eval="'2018-03-25 15:00:00'"/>
+            </function>
+
+            <function model="sale.order" name="_create_invoices" ref="fx_so_1" batched="True"/>
+
+            <function model="account.move" name="_populate_post"
+                      domain="[('state', '=', 'draft'), ('move_type', '=', 'out_invoice'), ('invoice_origin', 'like', 'S00001')]" batched="True">
+                <arg name="date" eval="'2018-03-26'"/>
+            </function>
+
+            <function model="account.move" name="_populate_register_payment"
+                      domain="[('state', '=', 'posted'), ('payment_state', 'not in', ('paid', 'in_payment', 'reversed')), ('move_type', '=', 'out_invoice'), ('invoice_origin', 'like', 'S00001')]" batched="True">
+                <arg name="date" eval="'2018-04-10'"/>
+            </function>
+
+            <function model="sale.order" name="_populate_confirm" ref="fx_so_3" batched="True">
+                <arg name="date" eval="'2022-06-08 10:00:00'"/>
+            </function>
+
+            <function model="crm.lead" name="_populate_win" ref="fx_so_3_lead" batched="True">
+                <arg name="date" eval="'2022-06-08 10:00:00'"/>
+            </function>
+
+            <function model="purchase.order" name="_populate_confirm"
+                      domain="[('state', '=', 'draft'), ('origin', 'like', 'S00003')]" batched="True">
+                <arg name="date" eval="'2022-06-09 09:00:00'"/>
+            </function>
+
+            <function model="mrp.production" name="_populate_produce"
+                      domain="[('state', 'not in', ('done', 'cancel')), ('origin', 'like', 'S00003')]" batched="True">
+                <arg name="date_start" eval="'2022-06-09 08:00:00'"/>
+                <arg name="date_finished" eval="'2022-06-11 17:00:00'"/>
+            </function>
+
+            <function model="stock.picking" name="_populate_validate"
+                      domain="[('state', 'not in', ('done', 'cancel')), ('picking_type_id.code', '=', 'incoming'), ('purchase_id.origin', 'like', 'S00003')]" batched="True">
+                <arg name="date" eval="'2022-06-16 14:00:00'"/>
+            </function>
+
+            <function model="stock.picking" name="_populate_validate"
+                      domain="[('state', 'not in', ('done', 'cancel', 'waiting')), ('picking_type_id.code', '=', 'internal'), ('origin', 'like', 'S00003')]" batched="True">
+                <arg name="date" eval="'2022-06-17 10:00:00'"/>
+            </function>
+
+            <function model="stock.picking" name="_populate_validate"
+                      domain="[('state', 'not in', ('done', 'cancel')), ('picking_type_id.code', '=', 'internal'), ('origin', 'like', 'S00003')]" batched="True">
+                <arg name="date" eval="'2022-06-20 10:00:00'"/>
+            </function>
+
+            <function model="stock.picking" name="_populate_validate"
+                      domain="[('state', 'not in', ('done', 'cancel')), ('picking_type_id.code', '=', 'outgoing'), ('origin', 'like', 'S00003')]" batched="True">
+                <arg name="date" eval="'2022-06-22 15:00:00'"/>
+            </function>
+
+            <function model="sale.order" name="_create_invoices" ref="fx_so_3" batched="True"/>
+
+            <function model="account.move" name="_populate_post"
+                      domain="[('state', '=', 'draft'), ('move_type', '=', 'out_invoice'), ('invoice_origin', 'like', 'S00003')]" batched="True">
+                <arg name="date" eval="'2022-06-23'"/>
+            </function>
+
+            <function model="account.move" name="_populate_register_payment"
+                      domain="[('state', '=', 'posted'), ('payment_state', 'not in', ('paid', 'in_payment', 'reversed')), ('move_type', '=', 'out_invoice'), ('invoice_origin', 'like', 'S00003')]" batched="True">
+                <arg name="date" eval="'2022-07-15'"/>
+            </function>
+
+            <function model="sale.order" name="_populate_confirm" ref="fx_so_5" batched="True">
+                <arg name="date" eval="'2023-11-08 10:00:00'"/>
+            </function>
+
+            <function model="crm.lead" name="_populate_win" ref="fx_so_5_lead" batched="True">
+                <arg name="date" eval="'2023-11-08 10:00:00'"/>
+            </function>
+
+            <function model="purchase.order" name="_populate_confirm"
+                      domain="[('state', '=', 'draft'), ('origin', 'like', 'S00005')]" batched="True">
+                <arg name="date" eval="'2023-11-09 09:00:00'"/>
+            </function>
+
+            <function model="mrp.production" name="_populate_produce"
+                      domain="[('state', 'not in', ('done', 'cancel')), ('origin', 'like', 'S00005')]" batched="True">
+                <arg name="date_start" eval="'2023-11-09 08:00:00'"/>
+                <arg name="date_finished" eval="'2023-11-11 17:00:00'"/>
+            </function>
+
+            <function model="stock.picking" name="_populate_validate"
+                      domain="[('state', 'not in', ('done', 'cancel')), ('picking_type_id.code', '=', 'incoming'), ('purchase_id.origin', 'like', 'S00005')]" batched="True">
+                <arg name="date" eval="'2023-11-16 14:00:00'"/>
+            </function>
+
+            <function model="stock.picking" name="_populate_validate"
+                      domain="[('state', 'not in', ('done', 'cancel', 'waiting')), ('picking_type_id.code', '=', 'internal'), ('origin', 'like', 'S00005')]" batched="True">
+                <arg name="date" eval="'2023-11-17 10:00:00'"/>
+            </function>
+
+            <function model="stock.picking" name="_populate_validate"
+                      domain="[('state', 'not in', ('done', 'cancel')), ('picking_type_id.code', '=', 'internal'), ('origin', 'like', 'S00005')]" batched="True">
+                <arg name="date" eval="'2023-11-28 10:00:00'"/>
+            </function>
+
+            <function model="stock.picking" name="_populate_validate"
+                      domain="[('state', 'not in', ('done', 'cancel')), ('picking_type_id.code', '=', 'outgoing'), ('origin', 'like', 'S00005')]" batched="True">
+                <arg name="date" eval="'2023-11-30 15:00:00'"/>
+            </function>
+
+            <function model="sale.order" name="_create_invoices" ref="fx_so_5" batched="True"/>
+
+            <function model="account.move" name="_populate_post"
+                      domain="[('state', '=', 'draft'), ('move_type', '=', 'out_invoice'), ('invoice_origin', 'like', 'S00005')]" batched="True">
+                <arg name="date" eval="'2023-12-01'"/>
+            </function>
+
+            <function model="account.move" name="_populate_register_payment"
+                      domain="[('state', '=', 'posted'), ('payment_state', 'not in', ('paid', 'in_payment', 'reversed')), ('move_type', '=', 'out_invoice'), ('invoice_origin', 'like', 'S00005')]" batched="True">
+                <arg name="date" eval="'2023-12-20'"/>
+            </function>
+
+            <function model="sale.order" name="_populate_confirm" ref="fx_so_8" batched="True">
+                <arg name="date" eval="'2025-02-01 10:00:00'"/>
+            </function>
+
+            <function model="sale.order" name="_populate_cancel" ref="fx_so_8"/>
+
+            <function model="sale.order" name="_populate_confirm" ref="fx_so_10" batched="True">
+                <arg name="date" eval="'2025-12-28 10:00:00'"/>
+            </function>
+
+            <function model="crm.lead" name="_populate_win" ref="fx_so_10_lead" batched="True">
+                <arg name="date" eval="'2025-12-28 10:00:00'"/>
+            </function>
+
+            <function model="purchase.order" name="_populate_confirm"
+                      domain="[('state', '=', 'draft'), ('origin', 'like', 'S00010')]" batched="True">
+                <arg name="date" eval="'2025-12-29 09:00:00'"/>
+            </function>
+
+            <function model="stock.picking" name="_populate_validate"
+                      domain="[('state', 'not in', ('done', 'cancel')), ('picking_type_id.code', '=', 'incoming'), ('purchase_id.origin', 'like', 'S00010')]" batched="True">
+                <arg name="date" eval="'2026-01-05 14:00:00'"/>
+            </function>
+
+            <function model="stock.picking" name="_populate_validate"
+                      domain="[('state', 'not in', ('done', 'cancel')), ('picking_type_id.code', '=', 'outgoing'), ('origin', 'like', 'S00010')]" batched="True">
+                <arg name="date" eval="'2026-01-09 15:00:00'"/>
+            </function>
+
+            <function model="sale.order" name="_create_invoices" ref="fx_so_10" batched="True"/>
+
+            <function model="account.move" name="_populate_post"
+                      domain="[('state', '=', 'draft'), ('move_type', '=', 'out_invoice'), ('invoice_origin', 'like', 'S00010')]" batched="True">
+                <arg name="date" eval="'2026-01-10'"/>
+            </function>
+
+            <function model="account.move" name="_populate_register_payment"
+                      domain="[('state', '=', 'posted'), ('payment_state', 'not in', ('paid', 'in_payment', 'reversed')), ('move_type', '=', 'out_invoice'), ('invoice_origin', 'like', 'S00010')]" batched="True">
+                <arg name="date" eval="'2026-02-01'"/>
+            </function>
+
+            <function model="sale.order" name="_populate_confirm" ref="fx_so_13" batched="True">
+                <arg name="date" eval="'2026-08-10 10:00:00'"/>
+            </function>
+
+            <function model="crm.lead" name="_populate_win" ref="fx_so_13_lead" batched="True">
+                <arg name="date" eval="'2026-08-10 10:00:00'"/>
+            </function>
+
+            <function model="purchase.order" name="_populate_confirm"
+                      domain="[('state', '=', 'draft'), ('origin', 'like', 'S00013')]" batched="True">
+                <arg name="date" eval="'2026-08-11 09:00:00'"/>
+            </function>
+
+            <function model="sale.order" name="_populate_confirm" ref="fx_so_12" batched="True">
+                <arg name="date" eval="'2026-08-15 10:00:00'"/>
+            </function>
+
+            <function model="crm.lead" name="_populate_win" ref="fx_so_12_lead" batched="True">
+                <arg name="date" eval="'2026-08-15 10:00:00'"/>
+            </function>
+
+            <function model="sale.order" name="_populate_confirm" ref="fx_so_4" batched="True">
+                <arg name="date" eval="'2026-08-20 10:00:00'"/>
+            </function>
+
+            <function model="crm.lead" name="_populate_win" ref="fx_so_4_lead" batched="True">
+                <arg name="date" eval="'2026-08-20 10:00:00'"/>
+            </function>
+
+            <function model="purchase.order" name="_populate_confirm"
+                      domain="[('state', '=', 'draft'), ('origin', 'like', 'S00004')]" batched="True">
+                <arg name="date" eval="'2026-08-21 09:00:00'"/>
+            </function>
+
+            <function model="mrp.production" name="_populate_produce"
+                      domain="[('state', 'not in', ('done', 'cancel')), ('origin', 'like', 'S00004')]" batched="True">
+                <arg name="date_start" eval="'2026-08-21 08:00:00'"/>
+                <arg name="date_finished" eval="'2026-08-24 17:00:00'"/>
+            </function>
+
+            <function model="stock.picking" name="_populate_validate"
+                      domain="[('state', 'not in', ('done', 'cancel')), ('picking_type_id.code', '=', 'incoming'), ('purchase_id.origin', 'like', 'S00004')]" batched="True">
+                <arg name="date" eval="'2026-08-28 14:00:00'"/>
+            </function>
+
+            <function model="stock.picking" name="_populate_validate"
+                      domain="[('state', 'not in', ('done', 'cancel', 'waiting')), ('picking_type_id.code', '=', 'internal'), ('origin', 'like', 'S00004')]" batched="True">
+                <arg name="date" eval="'2026-08-29 10:00:00'"/>
+            </function>
+
+            <function model="sale.order" name="_populate_confirm" ref="fx_so_2" batched="True">
+                <arg name="date" eval="'2026-09-01 10:00:00'"/>
+            </function>
+
+            <function model="crm.lead" name="_populate_win" ref="fx_so_2_lead" batched="True">
+                <arg name="date" eval="'2026-09-01 10:00:00'"/>
+            </function>
+
+            <function model="mrp.production" name="_populate_produce"
+                      domain="[('state', 'not in', ('done', 'cancel')), ('origin', 'like', 'S00002')]" batched="True">
+                <arg name="date_start" eval="'2026-09-02 08:00:00'"/>
+                <arg name="date_finished" eval="'2026-09-04 17:00:00'"/>
+            </function>
+
+            <function model="stock.picking" name="_populate_validate"
+                      domain="[('state', 'not in', ('done', 'cancel')), ('picking_type_id.code', '=', 'outgoing'), ('origin', 'like', 'S00002')]" batched="True">
+                <arg name="date" eval="'2026-09-06 15:00:00'"/>
+            </function>
+
+            <function model="sale.order" name="_create_invoices" ref="fx_so_2" batched="True"/>
+
+            <function model="account.move" name="_populate_post"
+                      domain="[('state', '=', 'draft'), ('move_type', '=', 'out_invoice'), ('invoice_origin', 'like', 'S00002')]" batched="True">
+                <arg name="date" eval="'2026-09-07'"/>
+            </function>
+
+            <function model="sale.order" name="_populate_confirm" ref="fx_so_11" batched="True">
+                <arg name="date" eval="'2026-09-04 10:00:00'"/>
+            </function>
+
+            <function model="crm.lead" name="_populate_win" ref="fx_so_11_lead" batched="True">
+                <arg name="date" eval="'2026-09-04 10:00:00'"/>
+            </function>
+
+            <function model="mrp.production" name="_populate_produce"
+                      domain="[('state', 'not in', ('done', 'cancel')), ('origin', 'like', 'S00011')]" batched="True">
+                <arg name="date_start" eval="'2026-09-05 08:00:00'"/>
+                <arg name="date_finished" eval="'2026-09-07 17:00:00'"/>
+            </function>
+
+            <function model="stock.picking" name="_populate_validate"
+                      domain="[('state', 'not in', ('done', 'cancel', 'waiting')), ('picking_type_id.code', '=', 'internal'), ('origin', 'like', 'S00011')]" batched="True">
+                <arg name="date" eval="'2026-09-08 10:00:00'"/>
+            </function>
+
+            <function model="stock.picking" name="_populate_validate"
+                      domain="[('state', 'not in', ('done', 'cancel')), ('picking_type_id.code', '=', 'internal'), ('origin', 'like', 'S00011')]" batched="True">
+                <arg name="date" eval="'2026-09-11 10:00:00'"/>
+            </function>
+
+            <function model="stock.picking" name="_populate_validate"
+                      domain="[('state', 'not in', ('done', 'cancel')), ('picking_type_id.code', '=', 'outgoing'), ('origin', 'like', 'S00011')]" batched="True">
+                <arg name="date" eval="'2026-09-13 15:00:00'"/>
+            </function>
+
+            <function model="sale.order" name="_create_invoices" ref="fx_so_11" batched="True"/>
+
+            <function model="account.move" name="_populate_post"
+                      domain="[('state', '=', 'draft'), ('move_type', '=', 'out_invoice'), ('invoice_origin', 'like', 'S00011')]" batched="True">
+                <arg name="date" eval="'2026-09-14'"/>
+            </function>
+
+            <function model="sale.order" name="action_cancel" ref="fx_so_7"/>
+
+            <function model="crm.lead" name="_populate_lose" ref="fx_so_7_lead" batched="True">
+                <arg name="lost_reason_id" eval="env.ref('__import__.bi_loss_price').id"/>
+                <arg name="date" eval="'2024-05-20 10:00:00'"/>
+            </function>
+        </field>
+    </record>
+</odoo>
