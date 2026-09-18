@@ -10,31 +10,26 @@ import random
 from dataclasses import dataclass, field
 from datetime import date, datetime, timedelta
 
-CUTOFF = datetime(2026, 9, 21, 0, 0, 0)  # exclusive, Europe/Brussels
-
-PRODUCTION_LEAD_DAYS = (1, 4)
-PURCHASE_LEAD_DAYS = (5, 12)
-PURCHASE_CONFIRM_DELAY_DAYS = (0, 2)
-EU_DELIVERY_DAYS = (1, 3)
-REGIONAL_DELIVERY_DAYS = (2, 5)  # from a regional warehouse, once received
-DIRECT_TRANSIT_DAYS = {  # pre-2021 direct Belgium -> region, no regional warehouse leg
-    'americas': (8, 16),
-    'apac': (12, 22),
-}
-REGIONAL_TRANSIT_DAYS = {  # Belgium -> transit location, once the warehouse exists
-    'uk': (2, 5),
-    'americas': (8, 16),
-    'apac': (12, 22),
-}
-LATE_DELIVERY_SHARE = 0.10
-LATE_DELIVERY_EXTRA_DAYS = (2, 5)
-INVOICE_AFTER_DELIVERY_DAYS = (0, 2)
-
-CUSTOMER_NET_DAYS = 30
-FULL_SETTLEMENT_DAYS = 90  # pre-2026 documents settle within this window
-ON_TIME_SHARE_2026 = 0.85
-LATE_1_30_SHARE = 0.10
-UNPAID_SHARE = 0.05
+from .config import (
+    CUSTOMER_NET_DAYS,
+    CUTOFF,
+    DIRECT_TRANSIT_DAYS,
+    EU_DELIVERY_DAYS,
+    FULL_SETTLEMENT_DAYS,
+    INVOICE_AFTER_DELIVERY_DAYS,
+    LATE_1_30_SHARE,
+    LATE_DELIVERY_EXTRA_DAYS,
+    LATE_DELIVERY_SHARE,
+    ON_TIME_SHARE_2026,
+    PRODUCTION_LEAD_DAYS,
+    PURCHASE_CONFIRM_DELAY_DAYS,
+    PURCHASE_LEAD_DAYS,
+    REGIONAL_DELIVERY_DAYS,
+    REGIONAL_TRANSIT_DAYS,
+    UNPAID_SHARE,
+    VENDOR_BILL_AFTER_RECEIPT_DAYS,
+    VENDOR_NET_DAYS,
+)
 
 
 def _at(d: date, hour: int, minute: int = 0) -> datetime:
@@ -117,9 +112,15 @@ def schedule_invoice(delivery_actual: datetime, rng: random.Random) -> date:
     return add_days(delivery_actual, *INVOICE_AFTER_DELIVERY_DAYS, rng).date()
 
 
-def schedule_payment(invoice_date: date, rng: random.Random) -> tuple[date | None, bool]:
-    """Returns (payment_date, unpaid). ``payment_date`` is None only when ``unpaid``."""
-    due_date = invoice_date + timedelta(days=CUSTOMER_NET_DAYS)
+def schedule_payment(invoice_date: date, rng: random.Random, *, net_days: int = CUSTOMER_NET_DAYS) -> tuple[date | None, bool]:
+    """Returns (payment_date, unpaid). ``payment_date`` is None only when ``unpaid``.
+
+    Shared by customer payments (``net_days=CUSTOMER_NET_DAYS``, the default)
+    and vendor payments (``net_days=VENDOR_NET_DAYS``) - spec section 11's
+    85%/10%/5% on-time/late/unpaid settlement split for 2026 documents isn't
+    stated separately per side, only the net terms differ.
+    """
+    due_date = invoice_date + timedelta(days=net_days)
     is_2026_document = invoice_date.year == 2026
 
     if not is_2026_document:
@@ -129,7 +130,7 @@ def schedule_payment(invoice_date: date, rng: random.Random) -> tuple[date | Non
 
     roll = rng.random()
     if roll < ON_TIME_SHARE_2026:
-        pay_date = invoice_date + timedelta(days=rng.randint(0, CUSTOMER_NET_DAYS))
+        pay_date = invoice_date + timedelta(days=rng.randint(0, net_days))
     elif roll < ON_TIME_SHARE_2026 + LATE_1_30_SHARE:
         pay_date = due_date + timedelta(days=rng.randint(1, 30))
     else:
@@ -138,3 +139,12 @@ def schedule_payment(invoice_date: date, rng: random.Random) -> tuple[date | Non
     if pay_date >= CUTOFF.date():
         return None, True  # sampled payment falls after cutoff: unpaid at cutoff
     return pay_date, False
+
+
+def schedule_vendor_bill(po_receive_date: datetime, rng: random.Random) -> date:
+    """Vendor bill date: receipt date or up to 5 days later (spec section 10)."""
+    return add_days(po_receive_date, *VENDOR_BILL_AFTER_RECEIPT_DAYS, rng).date()
+
+
+def schedule_vendor_payment(bill_date: date, rng: random.Random) -> tuple[date | None, bool]:
+    return schedule_payment(bill_date, rng, net_days=VENDOR_NET_DAYS)

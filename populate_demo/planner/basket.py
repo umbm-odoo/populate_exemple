@@ -8,19 +8,18 @@ from __future__ import annotations
 import random
 from datetime import date
 
-from .seasonal import BASE_FAMILY_WEIGHTS, FAMILY_PRODUCTS
-
-LINE_COUNT_WEIGHTS = {1: 0.10, 2: 0.20, 3: 0.30, 4: 0.20, 5: 0.15, 6: 0.05}
-
-INDIVIDUAL_QTY_RANGE = {'wands': (1, 2), 'brooms': (1, 1), 'potions': (1, 3), 'consumables': (2, 8)}
-CORPORATE_QTY_RANGE = {'wands': (3, 8), 'brooms': (1, 3), 'potions': (5, 15), 'consumables': (20, 60)}
-INDIVIDUAL_DISCOUNT = 0.0
-CORPORATE_DISCOUNT = 0.05
-
-CHOCOGRENOUILLES_PRODUCT = 'prod_chocolate_frog'
-CHOCOGRENOUILLES_WINDOW = (date(2020, 11, 1), date(2020, 11, 14))
-CHOCOGRENOUILLES_MULTIPLIER = 4
-CHOCOGRENOUILLES_CAMPAIGN = 'bi_campaign_frogs'
+from .config import (
+    BASE_FAMILY_WEIGHTS,
+    CHOCOGRENOUILLES_MULTIPLIER,
+    CHOCOGRENOUILLES_PRODUCT,
+    CHOCOGRENOUILLES_WINDOW,
+    CORPORATE_DISCOUNT,
+    CORPORATE_QTY_RANGE,
+    FAMILY_PRODUCTS,
+    INDIVIDUAL_DISCOUNT,
+    INDIVIDUAL_QTY_RANGE,
+    LINE_COUNT_WEIGHTS,
+)
 
 
 def sample_line_count(rng: random.Random) -> int:

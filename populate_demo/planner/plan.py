@@ -11,12 +11,8 @@ import random
 from datetime import datetime
 
 from . import attribution, basket, seasonal as cal, crm, outstanding, parties, quotas, regions, schedule
+from .config import CUTOFF, OPEN_QUOTATION_WINDOW_DAYS, OUTSTANDING_WINDOW_DAYS, SCENARIO_START
 from .eligibility import build_customers, build_suppliers, load_snapshot
-
-SCENARIO_START = datetime(2016, 1, 1)
-CUTOFF = schedule.CUTOFF
-OPEN_QUOTATION_WINDOW_DAYS = 60
-OUTSTANDING_WINDOW_DAYS = 45
 
 
 def _line_is_manufactured(product_xmlid: str) -> bool:

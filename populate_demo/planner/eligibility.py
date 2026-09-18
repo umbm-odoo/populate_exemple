@@ -12,23 +12,17 @@ from dataclasses import dataclass
 from datetime import date
 from pathlib import Path
 
+from .config import (
+    AMERICAS_CODES,
+    APAC_CODES,
+    EUROPE_CODES,
+    PHASE1_ELIGIBLE_FROM,
+    PHASE2_COHORT_SIZES,
+    PHASE2_SUPPLIER_ELIGIBLE_FROM,
+    UK_CODE,
+)
+
 SNAPSHOT_PATH = Path(__file__).parent / 'data' / 'snapshot.json'
-
-# Spec section 4: proposed customer onboarding cohorts (Phase 2 only; Phase 1
-# is eligible from scenario start). Assignment to a specific cohort is not
-# fixed by the spec - customers are sliced into cohorts in stable xmlid
-# order, which is deterministic and reproducible without needing the RNG.
-PHASE2_COHORT_SIZES = {2021: 40, 2022: 24, 2023: 20, 2024: 16, 2025: 12, 2026: 8}
-PHASE1_ELIGIBLE_FROM = date(2016, 1, 1)
-PHASE2_SUPPLIER_ELIGIBLE_FROM = date(2021, 1, 1)
-
-EUROPE_CODES = {
-    'FR', 'DE', 'IT', 'ES', 'BG', 'SE', 'NO', 'DK', 'FI', 'PT', 'GR', 'AL', 'AT', 'IE', 'BE', 'NL',
-    'LU', 'PL', 'CZ', 'SK', 'HU', 'RO', 'HR', 'SI', 'EE', 'LV', 'LT', 'MT', 'CY', 'IS', 'CH',
-}
-AMERICAS_CODES = {'US', 'CA', 'BR', 'MX', 'AR', 'PE', 'CL', 'CO', 'VE', 'UY', 'PY', 'BO', 'EC'}
-APAC_CODES = {'SG', 'AU', 'CN', 'IN', 'JP', 'KR', 'TH', 'ID', 'NZ', 'MY', 'PH', 'VN', 'TW', 'HK'}
-UK_CODE = 'GB'
 
 
 def bucket_for_country(country_code: str | None) -> str | None:

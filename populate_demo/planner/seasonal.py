@@ -14,25 +14,7 @@ import calendar as _calendar
 import random
 from datetime import date, datetime, timedelta
 
-DEFAULT_HOUR = 10
-
-FAMILIES = ('wands', 'brooms', 'potions', 'consumables')
-FAMILY_PRODUCTS = {
-    'wands': ('prod_wand_holly', 'prod_wand_elder'),
-    'brooms': ('prod_nimbus', 'prod_firebolt'),
-    'potions': ('prod_felix', 'prod_polyjuice'),
-    'consumables': ('prod_chocolate_frog', 'prod_gillyweed'),
-}
-BASE_FAMILY_WEIGHTS = {'wands': 0.20, 'brooms': 0.25, 'potions': 0.30, 'consumables': 0.25}
-CALENDAR_GROUP = {'wands': 'wands_brooms', 'brooms': 'wands_brooms', 'potions': 'potions', 'consumables': 'consumables'}
-
-# (month, day_start, day_end_inclusive) -> {curve_group: multiplier}, "most of
-# the year" defaults to 1.0 for every group.
-SEASONAL_WINDOWS = [
-    ((8, 1), (8, 31), {'wands_brooms': 2.5, 'consumables': 3.0, 'potions': 1.5}),
-    ((9, 1), (9, 20), {'wands_brooms': 3.0, 'consumables': 4.0, 'potions': 1.5}),
-    ((9, 21), (9, 30), {'wands_brooms': 1.5, 'consumables': 1.5, 'potions': 1.0}),
-]
+from .config import BASE_FAMILY_WEIGHTS, CALENDAR_GROUP, DEFAULT_HOUR, FAMILIES, FAMILY_PRODUCTS, SEASONAL_WINDOWS
 
 
 def sample_family(rng: random.Random) -> str:

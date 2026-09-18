@@ -8,23 +8,21 @@ Belgium (spec section 6), so it can never be in the transit sub-bucket.
 """
 from __future__ import annotations
 
+from .config import OUTSTANDING_FULL_SCALE_TOTALS, OUTSTANDING_SUB_BUCKETS, REGION_WAREHOUSE, WAREHOUSE_OPENING
 from .rounding import reconcile_matrix
 
-SUB_BUCKETS = ('transit', 'production', 'purchase')
-FULL_SCALE_TOTALS = {'transit': 1000, 'production': 600, 'purchase': 400}
+SUB_BUCKETS = OUTSTANDING_SUB_BUCKETS
+FULL_SCALE_TOTALS = OUTSTANDING_FULL_SCALE_TOTALS
 
 
 def warehouse_for(region: str, year: int) -> str:
     """Fulfilling warehouse code for a destination region in a given year."""
-    if region == 'uk':
-        return 'UK'
-    if region == 'other_europe':
-        return 'BE'
-    if region == 'americas':
-        return 'US' if year >= 2021 else 'BE'
-    if region == 'apac':
-        return 'SG' if year >= 2021 else 'BE'
-    raise ValueError(f"Unknown region {region!r}")
+    if region not in REGION_WAREHOUSE:
+        raise ValueError(f"Unknown region {region!r}")
+    code = REGION_WAREHOUSE[region]
+    if code is not None and year >= WAREHOUSE_OPENING[code].year:
+        return code
+    return 'BE'
 
 
 def outstanding_sub_buckets(awaiting_by_region: dict[str, int], year: int, scale: float) -> dict[str, dict[str, int]]:

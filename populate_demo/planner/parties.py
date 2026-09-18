@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import random
 
+from .config import CORPORATE_SHARE, PRIMARY_SUPPLIER_SHARE
 from .eligibility import Party
 
 
@@ -19,9 +20,6 @@ def eligible_pool(parties: dict[str, Party], *, bucket: str | None, year: int) -
         pool = [p for p in pool if p.bucket == bucket]
     pool.sort(key=lambda p: p.xmlid)  # stable order before any RNG draw
     return pool
-
-
-CORPORATE_SHARE = 0.20  # spec section 7, "where both customer types exist"
 
 
 def pick_customer(customers: dict[str, Party], *, bucket: str, year: int, rng: random.Random) -> Party:
@@ -64,6 +62,6 @@ def pick_supplier(
     eligible.sort(key=lambda si: si['sequence'])
     primary, alternatives = eligible[0], eligible[1:]
 
-    if not alternatives or rng.random() < 0.70:
+    if not alternatives or rng.random() < PRIMARY_SUPPLIER_SHARE:
         return primary
     return rng.choice(alternatives)

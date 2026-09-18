@@ -13,20 +13,10 @@ spec's exact global numbers.
 """
 from __future__ import annotations
 
+from .config import CANCEL_BEFORE_CONFIRM_SHARE, CRM_EXTRA_FULL_SCALE, CRM_LINK_RATE
 from .rounding import reconcile_matrix
 
-LINK_RATE = 0.70
-
-# Spec section 3: how the 10,000 cancellations split (global, not per-year).
-CANCEL_BEFORE_CONFIRM_SHARE = 0.80  # 8,000 / 10,000
-CANCEL_AFTER_CONFIRM_SHARE = 0.20  # 2,000 / 10,000
-
-# Spec section 8: additional CRM volumes at full (100,000-order) scale.
-FULL_SCALE_EXTRA = {
-    'lost_no_quote': 40_000,
-    'open_no_quote': 6_000,
-    'unconverted_leads': 4_000,
-}
+LINK_RATE = CRM_LINK_RATE
 
 
 def _two_way_split(per_year_totals: dict[int, int], share_a: float) -> dict[int, tuple[int, int]]:
@@ -85,7 +75,7 @@ def linked_counts_per_year(annual_outcomes: dict[int, dict[str, int]]) -> dict[i
 def extra_crm_volumes(scale: float) -> dict[str, int]:
     """Unlinked CRM records (lost/open opportunities and leads with no quotation)."""
     result = {}
-    for key, full_value in FULL_SCALE_EXTRA.items():
+    for key, full_value in CRM_EXTRA_FULL_SCALE.items():
         scaled = full_value * scale
         rounded = round(scaled)
         if abs(rounded - scaled) > 1e-6:

@@ -10,45 +10,8 @@ fresh at whatever scale is requested.
 """
 from __future__ import annotations
 
+from .config import ANNUAL, ANNUAL_TOTAL, OUTCOMES, REGION_WEIGHTS, REGIONS, UK_SHARE_OF_EUROPE
 from .rounding import largest_remainder, reconcile_matrix
-
-OUTCOMES = ('delivered', 'awaiting', 'cancelled', 'open')
-
-# Spec section 3.
-ANNUAL = {
-    2016: {'all': 1500, 'delivered': 1300, 'awaiting': 0, 'cancelled': 200, 'open': 0},
-    2017: {'all': 1900, 'delivered': 1650, 'awaiting': 0, 'cancelled': 250, 'open': 0},
-    2018: {'all': 2400, 'delivered': 2100, 'awaiting': 0, 'cancelled': 300, 'open': 0},
-    2019: {'all': 3000, 'delivered': 2650, 'awaiting': 0, 'cancelled': 350, 'open': 0},
-    2020: {'all': 2700, 'delivered': 2300, 'awaiting': 0, 'cancelled': 400, 'open': 0},
-    2021: {'all': 8000, 'delivered': 7100, 'awaiting': 0, 'cancelled': 900, 'open': 0},
-    2022: {'all': 11000, 'delivered': 9850, 'awaiting': 0, 'cancelled': 1150, 'open': 0},
-    2023: {'all': 12500, 'delivered': 11000, 'awaiting': 0, 'cancelled': 1500, 'open': 0},
-    2024: {'all': 14500, 'delivered': 13100, 'awaiting': 0, 'cancelled': 1400, 'open': 0},
-    2025: {'all': 18000, 'delivered': 16450, 'awaiting': 0, 'cancelled': 1550, 'open': 0},
-    2026: {'all': 24500, 'delivered': 15500, 'awaiting': 2000, 'cancelled': 2000, 'open': 5000},
-}
-ANNUAL_TOTAL = {
-    'all': sum(y['all'] for y in ANNUAL.values()),
-    'delivered': sum(y['delivered'] for y in ANNUAL.values()),
-    'awaiting': sum(y['awaiting'] for y in ANNUAL.values()),
-    'cancelled': sum(y['cancelled'] for y in ANNUAL.values()),
-    'open': sum(y['open'] for y in ANNUAL.values()),
-}
-assert ANNUAL_TOTAL == {'all': 100_000, 'delivered': 83_000, 'awaiting': 2_000, 'cancelled': 10_000, 'open': 5_000}
-
-# Spec section 5. 2016-2020 share the same weights ("2016-2020" row).
-REGION_WEIGHTS = {
-    **{y: {'europe': 0.80, 'americas': 0.15, 'apac': 0.05} for y in range(2016, 2021)},
-    2021: {'europe': 0.70, 'americas': 0.20, 'apac': 0.10},
-    2022: {'europe': 0.66, 'americas': 0.22, 'apac': 0.12},
-    2023: {'europe': 0.62, 'americas': 0.24, 'apac': 0.14},
-    2024: {'europe': 0.58, 'americas': 0.26, 'apac': 0.16},
-    2025: {'europe': 0.54, 'americas': 0.28, 'apac': 0.18},
-    2026: {'europe': 0.50, 'americas': 0.30, 'apac': 0.20},
-}
-UK_SHARE_OF_EUROPE = 0.60
-REGIONS = ('uk', 'other_europe', 'americas', 'apac')
 
 
 def annual_outcome_quotas(scale: float) -> dict[int, dict[str, int]]:
