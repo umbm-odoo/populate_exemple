@@ -107,16 +107,24 @@ def reconcile_matrix(
         if col_errors[j_plus] <= 0 or col_errors[j_minus] >= 0:
             break  # shouldn't happen if margins agree, but avoid an infinite loop
 
-        # Only rows where this column's value was actually rounded up (a
-        # positive remainder) are fair game - taking a unit from a row whose
-        # cell was already an exact integer would silently corrupt a row that
-        # never needed adjusting, even though its row total stays correct.
-        candidate_rows = [
-            i for i in range(n_rows)
-            if result[i][j_plus] > 0
-            and remainders[i][j_plus] > 1e-9
-            and (i, j_minus) not in forbidden
-        ]
+        # Prefer rows where this column's value was actually rounded up (a
+        # positive remainder) - taking a unit from a row whose cell was
+        # already an exact integer is a less "deserved" correction, even
+        # though the row's own total stays correct either way (the unit
+        # moves to another column in the *same* row). Only fall back to an
+        # exact cell when no rounded-up one is available, rather than
+        # failing outright - with an unfavourable row/column shape (e.g. a
+        # column forbidden in every row but the one already at its target)
+        # every remaining candidate can legitimately have a zero remainder.
+        def candidates(require_remainder: bool) -> list[int]:
+            return [
+                i for i in range(n_rows)
+                if result[i][j_plus] > 0
+                and (i, j_minus) not in forbidden
+                and (not require_remainder or remainders[i][j_plus] > 1e-9)
+            ]
+
+        candidate_rows = candidates(True) or candidates(False)
         if not candidate_rows:
             raise ValueError(f"No row can give up a unit of column {j_plus} to reconcile totals.")
         row_i = min(

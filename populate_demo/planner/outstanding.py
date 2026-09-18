@@ -43,16 +43,37 @@ def outstanding_sub_buckets(awaiting_by_region: dict[str, int], year: int, scale
         )
 
     forbidden = set()
+    forced_weights = {'transit': 0.0, 'production': 0.6, 'purchase': 0.4}
+    transit_possible = {region: warehouse_for(region, year) != 'BE' for region in regions}
+
+    # A region forced out of transit still has to land somewhere, at the
+    # forced 0.6/0.4 split - so it structurally can't carry its share of the
+    # global column totals. The regions that *can* still use every bucket
+    # must absorb that shortfall, or the columns can never reconcile: with
+    # even one forced-out region, applying the plain global ratio to every
+    # eligible region independently leaves transit short and
+    # production/purchase over by however many units that region held.
+    forced_totals = {b: 0.0 for b in SUB_BUCKETS}
+    eligible_total = 0
+    for region in regions:
+        if transit_possible[region]:
+            eligible_total += awaiting_by_region[region]
+        else:
+            for b in SUB_BUCKETS:
+                forced_totals[b] += awaiting_by_region[region] * forced_weights[b]
+    eligible_weights = (
+        {b: (FULL_SCALE_TOTALS[b] * scale - forced_totals[b]) / eligible_total for b in SUB_BUCKETS}
+        if eligible_total else {b: 0.0 for b in SUB_BUCKETS}
+    )
+
     matrix = []
     for i, region in enumerate(regions):
         count = awaiting_by_region[region]
-        transit_possible = warehouse_for(region, year) != 'BE'
-        if not transit_possible:
-            forbidden.add((i, SUB_BUCKETS.index('transit')))
-            weights = {'transit': 0.0, 'production': 0.6, 'purchase': 0.4}
+        if transit_possible[region]:
+            weights = eligible_weights
         else:
-            total_weight = sum(FULL_SCALE_TOTALS.values())
-            weights = {b: FULL_SCALE_TOTALS[b] / total_weight for b in SUB_BUCKETS}
+            forbidden.add((i, SUB_BUCKETS.index('transit')))
+            weights = forced_weights
         matrix.append([count * weights[b] for b in SUB_BUCKETS])
 
     row_targets = [awaiting_by_region[r] for r in regions]
