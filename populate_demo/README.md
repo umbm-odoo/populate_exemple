@@ -8,7 +8,28 @@ own beyond the Populate blueprints (`populate/fixture.xml`,
 this module and has to be imported separately before either blueprint can
 run, because both reference it by external ID (`__import__.<xmlid>`).
 
-Everything below assumes Odoo 19.5 Enterprise and the `odev` CLI.
+Everything below assumes the `odev` CLI and this **exact** Odoo dev
+snapshot — "19.5" is not a released Odoo version, it's `odoo/odoo`'s
+`master` branch, which moves daily and makes breaking schema changes
+(e.g. `stock.valuation.layer` doesn't exist on this snapshot; it was
+replaced by `value`/`remaining_qty`/`remaining_value` fields directly on
+`stock.move`). Running this against any released version (18.0, a stable
+19.0 once it exists, Odoo.sh's stable branches, ...) - or even a
+*different* master snapshot - will fail with tracebacks that look like
+missing fields/models, because the schema genuinely is different.
+
+Pin to:
+- `odoo/odoo` core: commit `f63f1cca433b182d003f0ac4eb9f8e2efaad810d` (2026-08-25)
+- `odoo/enterprise`: commit `b8b09590ddb5a88f30fdd5249f4c830002abdc64` (2026-08-25)
+
+`odev run <dbname> ... -V 19.5 -w 19.5 --venv 19.5` resolves an existing
+`19.5` worktree/venv if one is already set up locally at those commits;
+it does not itself pin or fetch these specific commits, so a fresh `odev`
+setup on another machine needs to check out `odoo`/`enterprise` at them
+explicitly before running anything below. **This is also almost
+certainly why restoring a dump taken from this module elsewhere fails**
+- the target database needs to be running these same commits, not just
+"some 19.x build".
 
 ## 1. Create a fresh database and install the module
 

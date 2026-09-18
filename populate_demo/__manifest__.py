@@ -2,6 +2,8 @@
     'name': 'Populate Demo',
     'summary': 'Wingardium Odoosa BI talk - historical transactional blueprint',
     'category': 'Hidden/Tools',
+    'author': 'Odoo PS',
+    'license': 'LGPL-3',
     'depends': [
         'populate',
         'sale_stock',
