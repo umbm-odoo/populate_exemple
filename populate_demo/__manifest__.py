@@ -14,5 +14,6 @@
     ],
     'data': [
         'populate/fixture.xml',
+        'populate/pilot.xml',
     ],
 }

@@ -1,6 +1,6 @@
 from datetime import timedelta
 
-from odoo import fields, models
+from odoo import Command, fields, models
 
 
 class MrpProduction(models.Model):
@@ -45,8 +45,32 @@ class MrpProduction(models.Model):
                 po.picking_ids.move_ids.write({'product_uom_qty': qty})
                 po.picking_ids._populate_validate(date_receive)
             production.action_assign()
+            # We just bought/received exactly this move's own demand, but
+            # reservation is a shared pool: another production waiting on the
+            # same component can win part of what we just receipted before
+            # our own action_assign() runs, leaving this move a unit or two
+            # short and the production stuck in 'to_close' on a consumption
+            # mismatch. Top the reservation back up to the full demand - the
+            # stock physically exists, it just got claimed by the wrong move.
+            for move in production.move_raw_ids.filtered(lambda m: m.state not in ('done', 'cancel')):
+                shortfall = move.product_uom_qty - move.quantity
+                if shortfall <= 0:
+                    continue
+                if move.move_line_ids:
+                    move.move_line_ids[0].quantity += shortfall
+                else:
+                    move.move_line_ids = [Command.create({
+                        'product_id': move.product_id.id,
+                        'uom_id': move.uom_id.id,
+                        'quantity': shortfall,
+                        'location_id': move.location_id.id,
+                        'location_dest_id': move.location_dest_id.id,
+                        'picking_id': move.picking_id.id,
+                    })]
 
     def _populate_produce(self, date_start, date_finished):
+        date_start = fields.Datetime.to_datetime(date_start)
+        date_finished = fields.Datetime.to_datetime(date_finished)
         for production in self:
             if production.state == 'draft':
                 production.action_confirm()
@@ -54,10 +78,9 @@ class MrpProduction(models.Model):
             # before component needs are computed for purchasing - otherwise
             # we buy/receive for whatever quantity was showing beforehand.
             production.qty_producing = production.product_qty
-            start = fields.Datetime.to_datetime(date_start)
             production._populate_order_components(
-                date_order=start - timedelta(days=9),
-                date_receive=start - timedelta(days=2),
+                date_order=date_start - timedelta(days=9),
+                date_receive=date_start - timedelta(days=2),
             )
             production.button_mark_done()
             # force_date bypasses the "can't move a done/cancelled MO" guard;

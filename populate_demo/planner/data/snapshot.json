@@ -1,0 +1,2091 @@
+{
+  "customers": [
+    {
+      "xmlid": "__import__.cust_i90",
+      "name": "Aberforth Dumbledore",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i82",
+      "name": "Adrian Pucey",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i11",
+      "name": "Alastor Moody",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i05",
+      "name": "Albus Dumbledore",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i56",
+      "name": "Alice Longbottom",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i78",
+      "name": "Alicia Spinnet",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_c16",
+      "name": "Amanuensis Quills",
+      "country_code": "GB",
+      "is_company": true,
+      "phase": 1
+    },
+    {
+      "xmlid": "__import__.cust_c25",
+      "name": "Amazonian Artefacts",
+      "country_code": "BR",
+      "is_company": true,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i53",
+      "name": "Amelia Bones",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i46",
+      "name": "Amos Diggory",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i77",
+      "name": "Angelina Johnson",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i66",
+      "name": "Anthony Goldstein",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i44",
+      "name": "Apolline Delacour",
+      "country_code": "FR",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i88",
+      "name": "Arabella Figg",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_c43",
+      "name": "Argentine Artefacts",
+      "country_code": "AR",
+      "is_company": true,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i01",
+      "name": "Arthur Weasley",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_c59",
+      "name": "Athens Artefacts",
+      "country_code": "GR",
+      "is_company": true,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i57",
+      "name": "Augusta Longbottom",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i18",
+      "name": "Aurora Sinistra",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_c47",
+      "name": "Bangkok Broomsticks",
+      "country_code": "TH",
+      "is_company": true,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_c57",
+      "name": "Barcelona Broomworks",
+      "country_code": "ES",
+      "is_company": true,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i48",
+      "name": "Barty Crouch Jr",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i47",
+      "name": "Barty Crouch Sr",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_c28",
+      "name": "Beijing Broomworks",
+      "country_code": "CN",
+      "is_company": true,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i07",
+      "name": "Bellatrix Lestrange",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_c31",
+      "name": "Berlin Brews",
+      "country_code": "DE",
+      "is_company": true,
+      "phase": 1
+    },
+    {
+      "xmlid": "__import__.cust_c26",
+      "name": "Brazilian Ministry of Magic",
+      "country_code": "BR",
+      "is_company": true,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_c17",
+      "name": "Broom Club NY",
+      "country_code": "US",
+      "is_company": true,
+      "phase": 1
+    },
+    {
+      "xmlid": "__import__.cust_c34",
+      "name": "Bulgarian Quidditch Team",
+      "country_code": "BG",
+      "is_company": true,
+      "phase": 1
+    },
+    {
+      "xmlid": "__import__.cust_c42",
+      "name": "Cairo Curses Ltd",
+      "country_code": "EG",
+      "is_company": true,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_c36",
+      "name": "Canadian Charms Co.",
+      "country_code": "CA",
+      "is_company": true,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_c40",
+      "name": "Cape Town Cauldrons",
+      "country_code": "ZA",
+      "is_company": true,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i16",
+      "name": "Charity Burbage",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_c19",
+      "name": "Chateau Magic",
+      "country_code": "FR",
+      "is_company": true,
+      "phase": 1
+    },
+    {
+      "xmlid": "__import__.cust_i74",
+      "name": "Colin Creevey",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_c52",
+      "name": "Copenhagen Charms",
+      "country_code": "DK",
+      "is_company": true,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i72",
+      "name": "Cormac McLaggen",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i52",
+      "name": "Cornelius Fudge",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i30",
+      "name": "Credence Barebone",
+      "country_code": "US",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i15",
+      "name": "Cuthbert Binns",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i71",
+      "name": "Dean Thomas",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_c30",
+      "name": "Delhi Dark Arts Defense",
+      "country_code": "IN",
+      "is_company": true,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i75",
+      "name": "Dennis Creevey",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i86",
+      "name": "Dudley Dursley",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i54",
+      "name": "Edgar Bones",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i61",
+      "name": "Ernie Macmillan",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i42",
+      "name": "Fleur Delacour",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_c32",
+      "name": "Frankfurt Flying Carpets",
+      "country_code": "DE",
+      "is_company": true,
+      "phase": 1
+    },
+    {
+      "xmlid": "__import__.cust_i55",
+      "name": "Frank Longbottom",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_c20",
+      "name": "French Ministry of Magic",
+      "country_code": "FR",
+      "is_company": true,
+      "phase": 1
+    },
+    {
+      "xmlid": "__import__.cust_i43",
+      "name": "Gabrielle Delacour",
+      "country_code": "FR",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_c15",
+      "name": "Gambol and Japes",
+      "country_code": "GB",
+      "is_company": true,
+      "phase": 1
+    },
+    {
+      "xmlid": "__import__.cust_i37",
+      "name": "Garrick Ollivander",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i24",
+      "name": "Gellert Grindelwald",
+      "country_code": "AT",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_c33",
+      "name": "German Ministry of Magic",
+      "country_code": "DE",
+      "is_company": true,
+      "phase": 1
+    },
+    {
+      "xmlid": "__import__.cust_i22",
+      "name": "Gilderoy Lockhart",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i59",
+      "name": "Hannah Abbott",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_c53",
+      "name": "Helsinki Hexes",
+      "country_code": "FI",
+      "is_company": true,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_c03",
+      "name": "Hogwarts School",
+      "country_code": "GB",
+      "is_company": true,
+      "phase": 1
+    },
+    {
+      "xmlid": "__import__.cust_i21",
+      "name": "Horace Slughorn",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i40",
+      "name": "Igor Karkaroff",
+      "country_code": "BG",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_c60",
+      "name": "Istanbul Incantations",
+      "country_code": "TR",
+      "is_company": true,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i29",
+      "name": "Jacob Kowalski",
+      "country_code": "US",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_c49",
+      "name": "Jakarta Jinxes",
+      "country_code": "ID",
+      "is_company": true,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_c23",
+      "name": "Japanese Ministry of Magic",
+      "country_code": "JP",
+      "is_company": true,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i62",
+      "name": "Justin Finch-Fletchley",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i79",
+      "name": "Katie Bell",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i10",
+      "name": "Kingsley Shacklebolt",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_c22",
+      "name": "Kyoto Charms",
+      "country_code": "JP",
+      "is_company": true,
+      "phase": 1
+    },
+    {
+      "xmlid": "__import__.cust_i69",
+      "name": "Lavender Brown",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i76",
+      "name": "Lee Jordan",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i26",
+      "name": "Leta Lestrange",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_c44",
+      "name": "Lima Levitation",
+      "country_code": "PE",
+      "is_company": true,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_c58",
+      "name": "Lisbon Levitation",
+      "country_code": "PT",
+      "is_company": true,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i09",
+      "name": "Lucius Malfoy",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i49",
+      "name": "Ludo Bagman",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_c56",
+      "name": "Madrid Magic Co",
+      "country_code": "ES",
+      "is_company": true,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_c09",
+      "name": "Magical Congress USA (MACUSA)",
+      "country_code": "US",
+      "is_company": true,
+      "phase": 1
+    },
+    {
+      "xmlid": "__import__.cust_i81",
+      "name": "Marcus Flint",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i67",
+      "name": "Marietta Edgecombe",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i87",
+      "name": "Marjorie Dursley",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_c39",
+      "name": "Melbourne Magic Supplies",
+      "country_code": "AU",
+      "is_company": true,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_c45",
+      "name": "Mexican Magic Emporium",
+      "country_code": "MX",
+      "is_company": true,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i65",
+      "name": "Michael Corner",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_c04",
+      "name": "Ministry of Magic UK",
+      "country_code": "GB",
+      "is_company": true,
+      "phase": 1
+    },
+    {
+      "xmlid": "__import__.cust_i02",
+      "name": "Molly Weasley",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i45",
+      "name": "Monsieur Delacour",
+      "country_code": "FR",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_c29",
+      "name": "Mumbai Mystics",
+      "country_code": "IN",
+      "is_company": true,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i89",
+      "name": "Mundungus Fletcher",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i38",
+      "name": "Mykew Gregorovitch",
+      "country_code": "BG",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i08",
+      "name": "Narcissa Malfoy",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i58",
+      "name": "Neville Longbottom",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i35",
+      "name": "Nicolas Flamel",
+      "country_code": "FR",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_c41",
+      "name": "Nile Necromancy",
+      "country_code": "EG",
+      "is_company": true,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_c50",
+      "name": "Nordic Necromancy",
+      "country_code": "SE",
+      "is_company": true,
+      "phase": 1
+    },
+    {
+      "xmlid": "__import__.cust_c11",
+      "name": "Obscurus Books",
+      "country_code": "GB",
+      "is_company": true,
+      "phase": 1
+    },
+    {
+      "xmlid": "__import__.cust_i80",
+      "name": "Oliver Wood",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i39",
+      "name": "Olympe Maxime",
+      "country_code": "FR",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_c51",
+      "name": "Oslo Owl Emporium",
+      "country_code": "NO",
+      "is_company": true,
+      "phase": 1
+    },
+    {
+      "xmlid": "__import__.cust_c18",
+      "name": "Parisian Potions",
+      "country_code": "FR",
+      "is_company": true,
+      "phase": 1
+    },
+    {
+      "xmlid": "__import__.cust_i68",
+      "name": "Parvati Patil",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i32",
+      "name": "Percival Graves",
+      "country_code": "US",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i36",
+      "name": "Perenelle Flamel",
+      "country_code": "FR",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i85",
+      "name": "Petunia Dursley",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i51",
+      "name": "Pius Thicknesse",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i14",
+      "name": "Poppy Pomfrey",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i27",
+      "name": "Porpentina Goldstein",
+      "country_code": "US",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i28",
+      "name": "Queenie Goldstein",
+      "country_code": "US",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i23",
+      "name": "Quirinus Quirrell",
+      "country_code": "AL",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i04",
+      "name": "Remus Lupin",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_c24",
+      "name": "Rio Herbology Co",
+      "country_code": "BR",
+      "is_company": true,
+      "phase": 1
+    },
+    {
+      "xmlid": "__import__.cust_i12",
+      "name": "Rolanda Hooch",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_c54",
+      "name": "Rome Runes",
+      "country_code": "IT",
+      "is_company": true,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i73",
+      "name": "Romilda Vane",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i06",
+      "name": "Rubeus Hagrid",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i50",
+      "name": "Rufus Scrimgeour",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_c10",
+      "name": "Salem Witches Institute",
+      "country_code": "US",
+      "is_company": true,
+      "phase": 1
+    },
+    {
+      "xmlid": "__import__.cust_i70",
+      "name": "Seamus Finnigan",
+      "country_code": "IE",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_c46",
+      "name": "Seoul Spellbooks",
+      "country_code": "KR",
+      "is_company": true,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i17",
+      "name": "Septima Vector",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i31",
+      "name": "Seraphina Picquery",
+      "country_code": "US",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_c27",
+      "name": "Shanghai Silk Robes",
+      "country_code": "CN",
+      "is_company": true,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i19",
+      "name": "Silvanus Kettleburn",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_c48",
+      "name": "Singapore Sorcery",
+      "country_code": "SG",
+      "is_company": true,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i03",
+      "name": "Sirius Black",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_c35",
+      "name": "Sofia Spells Inc.",
+      "country_code": "BG",
+      "is_company": true,
+      "phase": 1
+    },
+    {
+      "xmlid": "__import__.cust_c05",
+      "name": "St Mungo's Hospital",
+      "country_code": "GB",
+      "is_company": true,
+      "phase": 1
+    },
+    {
+      "xmlid": "__import__.cust_i60",
+      "name": "Susan Bones",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i13",
+      "name": "Sybill Trelawney",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_c38",
+      "name": "Sydney Sorcery",
+      "country_code": "AU",
+      "is_company": true,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i83",
+      "name": "Terence Higgs",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_c13",
+      "name": "TerrorTours",
+      "country_code": "GB",
+      "is_company": true,
+      "phase": 1
+    },
+    {
+      "xmlid": "__import__.cust_i64",
+      "name": "Terry Boot",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_c06",
+      "name": "The Daily Prophet",
+      "country_code": "GB",
+      "is_company": true,
+      "phase": 1
+    },
+    {
+      "xmlid": "__import__.cust_c01",
+      "name": "The Leaky Cauldron",
+      "country_code": "GB",
+      "is_company": true,
+      "phase": 1
+    },
+    {
+      "xmlid": "__import__.cust_c07",
+      "name": "The Quibbler",
+      "country_code": "GB",
+      "is_company": true,
+      "phase": 1
+    },
+    {
+      "xmlid": "__import__.cust_i25",
+      "name": "Theseus Scamander",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_c02",
+      "name": "Three Broomsticks",
+      "country_code": "GB",
+      "is_company": true,
+      "phase": 1
+    },
+    {
+      "xmlid": "__import__.cust_c21",
+      "name": "Tokyo Wands Ltd",
+      "country_code": "JP",
+      "is_company": true,
+      "phase": 1
+    },
+    {
+      "xmlid": "__import__.cust_c14",
+      "name": "Twilfitt and Tatting's",
+      "country_code": "GB",
+      "is_company": true,
+      "phase": 1
+    },
+    {
+      "xmlid": "__import__.cust_c37",
+      "name": "Vancouver Vials",
+      "country_code": "CA",
+      "is_company": true,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_c55",
+      "name": "Venice Vials",
+      "country_code": "IT",
+      "is_company": true,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i84",
+      "name": "Vernon Dursley",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i41",
+      "name": "Viktor Krum",
+      "country_code": "BG",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i33",
+      "name": "Vinda Rosier",
+      "country_code": "FR",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_c08",
+      "name": "Weasleys' Wizard Wheezes",
+      "country_code": "GB",
+      "is_company": true,
+      "phase": 1
+    },
+    {
+      "xmlid": "__import__.cust_c12",
+      "name": "WhizzHard Books",
+      "country_code": "GB",
+      "is_company": true,
+      "phase": 1
+    },
+    {
+      "xmlid": "__import__.cust_i20",
+      "name": "Wilhelmina Grubbly-Plank",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i34",
+      "name": "Yusuf Kama",
+      "country_code": "FR",
+      "is_company": false,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.cust_i63",
+      "name": "Zacharias Smith",
+      "country_code": "GB",
+      "is_company": false,
+      "phase": 2
+    }
+  ],
+  "suppliers": [
+    {
+      "xmlid": "__import__.supp_15",
+      "name": "Beauxbatons Bakery",
+      "country_code": "FR",
+      "is_company": true,
+      "phase": 1
+    },
+    {
+      "xmlid": "__import__.supp_03",
+      "name": "Borgin and Burkes",
+      "country_code": "GB",
+      "is_company": true,
+      "phase": 1
+    },
+    {
+      "xmlid": "__import__.supp_12",
+      "name": "Broomstix Ltd.",
+      "country_code": "US",
+      "is_company": true,
+      "phase": 1
+    },
+    {
+      "xmlid": "__import__.supp_19",
+      "name": "Castelobruxo Herbology",
+      "country_code": "BR",
+      "is_company": true,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.supp_16",
+      "name": "Durmstrang Dark Arts Ltd.",
+      "country_code": "BG",
+      "is_company": true,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.supp_05",
+      "name": "Eeylops Owl Emporium",
+      "country_code": "GB",
+      "is_company": true,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.supp_08",
+      "name": "Flourish and Blotts",
+      "country_code": "GB",
+      "is_company": true,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.supp_23",
+      "name": "Gladrags Wizardwear",
+      "country_code": "GB",
+      "is_company": true,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.supp_10",
+      "name": "Gringotts Financial Services",
+      "country_code": "GB",
+      "is_company": true,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.supp_24",
+      "name": "Honeydukes Sweetmakers",
+      "country_code": "GB",
+      "is_company": true,
+      "phase": 1
+    },
+    {
+      "xmlid": "__import__.supp_13",
+      "name": "Ilvermorny Supply Co.",
+      "country_code": "US",
+      "is_company": true,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.supp_09",
+      "name": "Knockturn Imports",
+      "country_code": "GB",
+      "is_company": true,
+      "phase": 1
+    },
+    {
+      "xmlid": "__import__.supp_20",
+      "name": "Koldovstoretz Potions",
+      "country_code": "RU",
+      "is_company": true,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.supp_14",
+      "name": "MACUSA Procurement",
+      "country_code": "US",
+      "is_company": true,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.supp_07",
+      "name": "Madam Malkin's Robes",
+      "country_code": "GB",
+      "is_company": true,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.supp_04",
+      "name": "Magical Menagerie",
+      "country_code": "GB",
+      "is_company": true,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.supp_17",
+      "name": "Mahoutokoro Silk Co.",
+      "country_code": "JP",
+      "is_company": true,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.supp_01",
+      "name": "Ollivanders Wholesale",
+      "country_code": "GB",
+      "is_company": true,
+      "phase": 1
+    },
+    {
+      "xmlid": "__import__.supp_06",
+      "name": "Quality Quidditch Supplies",
+      "country_code": "GB",
+      "is_company": true,
+      "phase": 1
+    },
+    {
+      "xmlid": "__import__.supp_22",
+      "name": "Scrivenshaft's Quill Shop",
+      "country_code": "GB",
+      "is_company": true,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.supp_02",
+      "name": "Slug & Jiggers Apothecary",
+      "country_code": "GB",
+      "is_company": true,
+      "phase": 1
+    },
+    {
+      "xmlid": "__import__.supp_21",
+      "name": "Spindle's Cauldrons",
+      "country_code": "GB",
+      "is_company": true,
+      "phase": 1
+    },
+    {
+      "xmlid": "__import__.supp_18",
+      "name": "Uagadou Transfiguration Supplies",
+      "country_code": "UG",
+      "is_company": true,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.supp_11",
+      "name": "Wands of Gregorovitch",
+      "country_code": "BG",
+      "is_company": true,
+      "phase": 2
+    },
+    {
+      "xmlid": "__import__.supp_25",
+      "name": "Zonko's Joke Shop",
+      "country_code": "GB",
+      "is_company": true,
+      "phase": 1
+    }
+  ],
+  "products": [
+    {
+      "xmlid": "__import__.prod_nimbus",
+      "default_code": "BRM-001",
+      "name": "Nimbus 2000",
+      "category": "Brooms & Transport",
+      "is_manufactured": false,
+      "list_price": 280.0,
+      "standard_price": 200.0,
+      "route_names": [
+        "BI Demand Driven Customer Delivery",
+        "BI Buy into Belgium",
+        "BI Belgium to UK via transit",
+        "BI Belgium to US via transit",
+        "BI Belgium to SG via transit"
+      ]
+    },
+    {
+      "xmlid": "__import__.prod_firebolt",
+      "default_code": "BRM-002",
+      "name": "Firebolt",
+      "category": "Brooms & Transport",
+      "is_manufactured": false,
+      "list_price": 675.0,
+      "standard_price": 500.0,
+      "route_names": [
+        "BI Demand Driven Customer Delivery",
+        "BI Buy into Belgium",
+        "BI Belgium to UK via transit",
+        "BI Belgium to US via transit",
+        "BI Belgium to SG via transit"
+      ]
+    },
+    {
+      "xmlid": "__import__.prod_phoenix_feather",
+      "default_code": "COMP-001",
+      "name": "Phoenix Feather",
+      "category": "Wand Components",
+      "is_manufactured": false,
+      "list_price": 30.0,
+      "standard_price": 30.0,
+      "route_names": [
+        "BI Buy into Belgium"
+      ]
+    },
+    {
+      "xmlid": "__import__.prod_holly_wood",
+      "default_code": "COMP-002",
+      "name": "Holly Wood Branch",
+      "category": "Wand Components",
+      "is_manufactured": false,
+      "list_price": 10.0,
+      "standard_price": 10.0,
+      "route_names": [
+        "BI Buy into Belgium"
+      ]
+    },
+    {
+      "xmlid": "__import__.prod_elder_wood",
+      "default_code": "COMP-003",
+      "name": "Elder Wood Branch",
+      "category": "Wand Components",
+      "is_manufactured": false,
+      "list_price": 60.0,
+      "standard_price": 60.0,
+      "route_names": [
+        "BI Buy into Belgium"
+      ]
+    },
+    {
+      "xmlid": "__import__.prod_thestral_hair",
+      "default_code": "COMP-004",
+      "name": "Thestral Tail Hair",
+      "category": "Wand Components",
+      "is_manufactured": false,
+      "list_price": 90.0,
+      "standard_price": 90.0,
+      "route_names": [
+        "BI Buy into Belgium"
+      ]
+    },
+    {
+      "xmlid": "__import__.prod_chocolate_frog",
+      "default_code": "CONSU-001",
+      "name": "Chocogrenouilles (Chocolate Frogs)",
+      "category": "Consumables",
+      "is_manufactured": false,
+      "list_price": 7.5,
+      "standard_price": 3.0,
+      "route_names": [
+        "BI Demand Driven Customer Delivery",
+        "BI Buy into Belgium",
+        "BI Belgium to UK via transit",
+        "BI Belgium to US via transit",
+        "BI Belgium to SG via transit"
+      ]
+    },
+    {
+      "xmlid": "__import__.prod_gillyweed",
+      "default_code": "CONSU-002",
+      "name": "Gillyweed",
+      "category": "Consumables",
+      "is_manufactured": false,
+      "list_price": 26.0,
+      "standard_price": 12.0,
+      "route_names": [
+        "BI Demand Driven Customer Delivery",
+        "BI Buy into Belgium",
+        "BI Belgium to UK via transit",
+        "BI Belgium to US via transit",
+        "BI Belgium to SG via transit"
+      ]
+    },
+    {
+      "xmlid": "__import__.prod_felix",
+      "default_code": "POT-001",
+      "name": "Felix Felicis (Liquid Luck)",
+      "category": "Brewed Potions",
+      "is_manufactured": true,
+      "list_price": 210.0,
+      "standard_price": 100.0,
+      "route_names": [
+        "BI Demand Driven Customer Delivery",
+        "BI Manufacture in Belgium",
+        "BI Belgium to UK via transit",
+        "BI Belgium to US via transit",
+        "BI Belgium to SG via transit"
+      ]
+    },
+    {
+      "xmlid": "__import__.prod_polyjuice",
+      "default_code": "POT-002",
+      "name": "Polyjuice Potion",
+      "category": "Brewed Potions",
+      "is_manufactured": true,
+      "list_price": 165.0,
+      "standard_price": 80.0,
+      "route_names": [
+        "BI Demand Driven Customer Delivery",
+        "BI Manufacture in Belgium",
+        "BI Belgium to UK via transit",
+        "BI Belgium to US via transit",
+        "BI Belgium to SG via transit"
+      ]
+    },
+    {
+      "xmlid": "__import__.prod_ashwinder_egg",
+      "default_code": "RAW-001",
+      "name": "Ashwinder Egg",
+      "category": "Raw Ingredients",
+      "is_manufactured": false,
+      "list_price": 15.0,
+      "standard_price": 15.0,
+      "route_names": [
+        "BI Buy into Belgium"
+      ]
+    },
+    {
+      "xmlid": "__import__.prod_squill_bulb",
+      "default_code": "RAW-002",
+      "name": "Squill Bulb",
+      "category": "Raw Ingredients",
+      "is_manufactured": false,
+      "list_price": 5.0,
+      "standard_price": 5.0,
+      "route_names": [
+        "BI Buy into Belgium"
+      ]
+    },
+    {
+      "xmlid": "__import__.prod_lacewing",
+      "default_code": "RAW-003",
+      "name": "Lacewing Flies",
+      "category": "Raw Ingredients",
+      "is_manufactured": false,
+      "list_price": 2.0,
+      "standard_price": 2.0,
+      "route_names": [
+        "BI Buy into Belgium"
+      ]
+    },
+    {
+      "xmlid": "__import__.prod_boomslang",
+      "default_code": "RAW-004",
+      "name": "Boomslang Skin",
+      "category": "Raw Ingredients",
+      "is_manufactured": false,
+      "list_price": 25.0,
+      "standard_price": 25.0,
+      "route_names": [
+        "BI Buy into Belgium"
+      ]
+    },
+    {
+      "xmlid": "__import__.prod_wand_holly",
+      "default_code": "WAND-001",
+      "name": "Holly & Phoenix Feather Wand",
+      "category": "Wands & Focuses",
+      "is_manufactured": true,
+      "list_price": 135.0,
+      "standard_price": 50.0,
+      "route_names": [
+        "BI Demand Driven Customer Delivery",
+        "BI Manufacture in Belgium",
+        "BI Belgium to UK via transit",
+        "BI Belgium to US via transit",
+        "BI Belgium to SG via transit"
+      ]
+    },
+    {
+      "xmlid": "__import__.prod_wand_elder",
+      "default_code": "WAND-002",
+      "name": "Elder Wood Wand",
+      "category": "Wands & Focuses",
+      "is_manufactured": true,
+      "list_price": 360.0,
+      "standard_price": 150.0,
+      "route_names": [
+        "BI Demand Driven Customer Delivery",
+        "BI Manufacture in Belgium",
+        "BI Belgium to UK via transit",
+        "BI Belgium to US via transit",
+        "BI Belgium to SG via transit"
+      ]
+    }
+  ],
+  "supplierinfo": [
+    {
+      "product_xmlid": "__import__.prod_ashwinder_egg",
+      "partner_xmlid": "__import__.supp_02",
+      "sequence": 1,
+      "price": 15.0,
+      "delay": 7,
+      "date_start": "2016-01-01"
+    },
+    {
+      "product_xmlid": "__import__.prod_ashwinder_egg",
+      "partner_xmlid": "__import__.supp_09",
+      "sequence": 2,
+      "price": 15.45,
+      "delay": 7,
+      "date_start": "2016-01-01"
+    },
+    {
+      "product_xmlid": "__import__.prod_ashwinder_egg",
+      "partner_xmlid": "__import__.supp_20",
+      "sequence": 3,
+      "price": 15.9,
+      "delay": 12,
+      "date_start": "2021-01-01"
+    },
+    {
+      "product_xmlid": "__import__.prod_boomslang",
+      "partner_xmlid": "__import__.supp_02",
+      "sequence": 1,
+      "price": 25.0,
+      "delay": 7,
+      "date_start": "2016-01-01"
+    },
+    {
+      "product_xmlid": "__import__.prod_boomslang",
+      "partner_xmlid": "__import__.supp_09",
+      "sequence": 2,
+      "price": 25.75,
+      "delay": 7,
+      "date_start": "2016-01-01"
+    },
+    {
+      "product_xmlid": "__import__.prod_boomslang",
+      "partner_xmlid": "__import__.supp_20",
+      "sequence": 3,
+      "price": 26.5,
+      "delay": 12,
+      "date_start": "2021-01-01"
+    },
+    {
+      "product_xmlid": "__import__.prod_chocolate_frog",
+      "partner_xmlid": "__import__.supp_24",
+      "sequence": 1,
+      "price": 3.0,
+      "delay": 7,
+      "date_start": "2016-01-01"
+    },
+    {
+      "product_xmlid": "__import__.prod_chocolate_frog",
+      "partner_xmlid": "__import__.supp_15",
+      "sequence": 2,
+      "price": 3.09,
+      "delay": 7,
+      "date_start": "2016-01-01"
+    },
+    {
+      "product_xmlid": "__import__.prod_chocolate_frog",
+      "partner_xmlid": "__import__.supp_19",
+      "sequence": 3,
+      "price": 3.18,
+      "delay": 12,
+      "date_start": "2021-01-01"
+    },
+    {
+      "product_xmlid": "__import__.prod_elder_wood",
+      "partner_xmlid": "__import__.supp_01",
+      "sequence": 1,
+      "price": 60.0,
+      "delay": 7,
+      "date_start": "2016-01-01"
+    },
+    {
+      "product_xmlid": "__import__.prod_elder_wood",
+      "partner_xmlid": "__import__.supp_03",
+      "sequence": 2,
+      "price": 61.8,
+      "delay": 7,
+      "date_start": "2016-01-01"
+    },
+    {
+      "product_xmlid": "__import__.prod_elder_wood",
+      "partner_xmlid": "__import__.supp_11",
+      "sequence": 3,
+      "price": 63.6,
+      "delay": 12,
+      "date_start": "2021-01-01"
+    },
+    {
+      "product_xmlid": "__import__.prod_firebolt",
+      "partner_xmlid": "__import__.supp_06",
+      "sequence": 1,
+      "price": 500.0,
+      "delay": 7,
+      "date_start": "2016-01-01"
+    },
+    {
+      "product_xmlid": "__import__.prod_firebolt",
+      "partner_xmlid": "__import__.supp_12",
+      "sequence": 2,
+      "price": 515.0,
+      "delay": 7,
+      "date_start": "2016-01-01"
+    },
+    {
+      "product_xmlid": "__import__.prod_firebolt",
+      "partner_xmlid": "__import__.supp_13",
+      "sequence": 3,
+      "price": 530.0,
+      "delay": 12,
+      "date_start": "2021-01-01"
+    },
+    {
+      "product_xmlid": "__import__.prod_gillyweed",
+      "partner_xmlid": "__import__.supp_24",
+      "sequence": 1,
+      "price": 12.0,
+      "delay": 7,
+      "date_start": "2016-01-01"
+    },
+    {
+      "product_xmlid": "__import__.prod_gillyweed",
+      "partner_xmlid": "__import__.supp_15",
+      "sequence": 2,
+      "price": 12.36,
+      "delay": 7,
+      "date_start": "2016-01-01"
+    },
+    {
+      "product_xmlid": "__import__.prod_gillyweed",
+      "partner_xmlid": "__import__.supp_19",
+      "sequence": 3,
+      "price": 12.72,
+      "delay": 12,
+      "date_start": "2021-01-01"
+    },
+    {
+      "product_xmlid": "__import__.prod_holly_wood",
+      "partner_xmlid": "__import__.supp_01",
+      "sequence": 1,
+      "price": 10.0,
+      "delay": 7,
+      "date_start": "2016-01-01"
+    },
+    {
+      "product_xmlid": "__import__.prod_holly_wood",
+      "partner_xmlid": "__import__.supp_03",
+      "sequence": 2,
+      "price": 10.3,
+      "delay": 7,
+      "date_start": "2016-01-01"
+    },
+    {
+      "product_xmlid": "__import__.prod_holly_wood",
+      "partner_xmlid": "__import__.supp_11",
+      "sequence": 3,
+      "price": 10.6,
+      "delay": 12,
+      "date_start": "2021-01-01"
+    },
+    {
+      "product_xmlid": "__import__.prod_lacewing",
+      "partner_xmlid": "__import__.supp_02",
+      "sequence": 1,
+      "price": 2.0,
+      "delay": 7,
+      "date_start": "2016-01-01"
+    },
+    {
+      "product_xmlid": "__import__.prod_lacewing",
+      "partner_xmlid": "__import__.supp_09",
+      "sequence": 2,
+      "price": 2.06,
+      "delay": 7,
+      "date_start": "2016-01-01"
+    },
+    {
+      "product_xmlid": "__import__.prod_lacewing",
+      "partner_xmlid": "__import__.supp_20",
+      "sequence": 3,
+      "price": 2.12,
+      "delay": 12,
+      "date_start": "2021-01-01"
+    },
+    {
+      "product_xmlid": "__import__.prod_nimbus",
+      "partner_xmlid": "__import__.supp_06",
+      "sequence": 1,
+      "price": 200.0,
+      "delay": 7,
+      "date_start": "2016-01-01"
+    },
+    {
+      "product_xmlid": "__import__.prod_nimbus",
+      "partner_xmlid": "__import__.supp_12",
+      "sequence": 2,
+      "price": 206.0,
+      "delay": 7,
+      "date_start": "2016-01-01"
+    },
+    {
+      "product_xmlid": "__import__.prod_nimbus",
+      "partner_xmlid": "__import__.supp_13",
+      "sequence": 3,
+      "price": 212.0,
+      "delay": 12,
+      "date_start": "2021-01-01"
+    },
+    {
+      "product_xmlid": "__import__.prod_phoenix_feather",
+      "partner_xmlid": "__import__.supp_01",
+      "sequence": 1,
+      "price": 30.0,
+      "delay": 7,
+      "date_start": "2016-01-01"
+    },
+    {
+      "product_xmlid": "__import__.prod_phoenix_feather",
+      "partner_xmlid": "__import__.supp_03",
+      "sequence": 2,
+      "price": 30.9,
+      "delay": 7,
+      "date_start": "2016-01-01"
+    },
+    {
+      "product_xmlid": "__import__.prod_phoenix_feather",
+      "partner_xmlid": "__import__.supp_11",
+      "sequence": 3,
+      "price": 31.8,
+      "delay": 12,
+      "date_start": "2021-01-01"
+    },
+    {
+      "product_xmlid": "__import__.prod_squill_bulb",
+      "partner_xmlid": "__import__.supp_02",
+      "sequence": 1,
+      "price": 5.0,
+      "delay": 7,
+      "date_start": "2016-01-01"
+    },
+    {
+      "product_xmlid": "__import__.prod_squill_bulb",
+      "partner_xmlid": "__import__.supp_09",
+      "sequence": 2,
+      "price": 5.15,
+      "delay": 7,
+      "date_start": "2016-01-01"
+    },
+    {
+      "product_xmlid": "__import__.prod_squill_bulb",
+      "partner_xmlid": "__import__.supp_20",
+      "sequence": 3,
+      "price": 5.3,
+      "delay": 12,
+      "date_start": "2021-01-01"
+    },
+    {
+      "product_xmlid": "__import__.prod_thestral_hair",
+      "partner_xmlid": "__import__.supp_01",
+      "sequence": 1,
+      "price": 90.0,
+      "delay": 7,
+      "date_start": "2016-01-01"
+    },
+    {
+      "product_xmlid": "__import__.prod_thestral_hair",
+      "partner_xmlid": "__import__.supp_03",
+      "sequence": 2,
+      "price": 92.7,
+      "delay": 7,
+      "date_start": "2016-01-01"
+    },
+    {
+      "product_xmlid": "__import__.prod_thestral_hair",
+      "partner_xmlid": "__import__.supp_11",
+      "sequence": 3,
+      "price": 95.4,
+      "delay": 12,
+      "date_start": "2021-01-01"
+    }
+  ],
+  "bom_lines": [
+    {
+      "finished_xmlid": "__import__.prod_felix",
+      "component_xmlid": "__import__.prod_ashwinder_egg",
+      "qty": 1.0
+    },
+    {
+      "finished_xmlid": "__import__.prod_felix",
+      "component_xmlid": "__import__.prod_squill_bulb",
+      "qty": 2.0
+    },
+    {
+      "finished_xmlid": "__import__.prod_polyjuice",
+      "component_xmlid": "__import__.prod_lacewing",
+      "qty": 5.0
+    },
+    {
+      "finished_xmlid": "__import__.prod_polyjuice",
+      "component_xmlid": "__import__.prod_boomslang",
+      "qty": 1.0
+    },
+    {
+      "finished_xmlid": "__import__.prod_wand_holly",
+      "component_xmlid": "__import__.prod_phoenix_feather",
+      "qty": 1.0
+    },
+    {
+      "finished_xmlid": "__import__.prod_wand_holly",
+      "component_xmlid": "__import__.prod_holly_wood",
+      "qty": 1.0
+    },
+    {
+      "finished_xmlid": "__import__.prod_wand_elder",
+      "component_xmlid": "__import__.prod_elder_wood",
+      "qty": 1.0
+    },
+    {
+      "finished_xmlid": "__import__.prod_wand_elder",
+      "component_xmlid": "__import__.prod_thestral_hair",
+      "qty": 1.0
+    }
+  ],
+  "warehouses": [
+    {
+      "xmlid": "stock.warehouse0",
+      "code": "BE",
+      "name": "Belgium Hub"
+    },
+    {
+      "xmlid": "__import__.bi_wh_uk",
+      "code": "UK",
+      "name": "UK Distribution"
+    },
+    {
+      "xmlid": "__import__.bi_wh_us",
+      "code": "US",
+      "name": "US Distribution"
+    },
+    {
+      "xmlid": "__import__.bi_wh_sg",
+      "code": "SG",
+      "name": "Singapore Distribution"
+    }
+  ],
+  "teams": [
+    {
+      "xmlid": "sales_team.team_sales_department",
+      "name": "Sales",
+      "user_xmlid": "base.user_admin",
+      "member_xmlids": [
+        "base.user_admin"
+      ]
+    },
+    {
+      "xmlid": "__import__.team_slytherin",
+      "name": "Slytherin",
+      "user_xmlid": "__import__.user_mgr_slyth",
+      "member_xmlids": [
+        "__import__.user_s_1",
+        "__import__.user_s_2",
+        "__import__.user_s_3"
+      ]
+    },
+    {
+      "xmlid": "__import__.team_ravenclaw",
+      "name": "Ravenclaw",
+      "user_xmlid": "__import__.user_mgr_rav",
+      "member_xmlids": [
+        "__import__.user_r_1",
+        "__import__.user_r_2",
+        "__import__.user_r_3"
+      ]
+    },
+    {
+      "xmlid": "__import__.team_hufflepuff",
+      "name": "Hufflepuff",
+      "user_xmlid": "__import__.user_mgr_huff",
+      "member_xmlids": [
+        "__import__.user_h_1",
+        "__import__.user_h_2",
+        "__import__.user_h_3"
+      ]
+    },
+    {
+      "xmlid": "__import__.team_gryffindor",
+      "name": "Gryffindor",
+      "user_xmlid": "__import__.user_mgr_gryff",
+      "member_xmlids": [
+        "__import__.user_g_1",
+        "__import__.user_g_2",
+        "__import__.user_g_3"
+      ]
+    }
+  ],
+  "stages": [
+    {
+      "xmlid": "crm.stage_lead1",
+      "name": "New",
+      "sequence": 1,
+      "is_won": false
+    },
+    {
+      "xmlid": "crm.stage_lead2",
+      "name": "Qualified",
+      "sequence": 2,
+      "is_won": false
+    },
+    {
+      "xmlid": "crm.stage_lead3",
+      "name": "Proposition",
+      "sequence": 3,
+      "is_won": false
+    },
+    {
+      "xmlid": "__import__.bi_crm_new",
+      "name": "New",
+      "sequence": 10,
+      "is_won": false
+    },
+    {
+      "xmlid": "__import__.bi_crm_qualified",
+      "name": "Qualified",
+      "sequence": 20,
+      "is_won": false
+    },
+    {
+      "xmlid": "__import__.bi_crm_proposal",
+      "name": "Proposal",
+      "sequence": 30,
+      "is_won": false
+    },
+    {
+      "xmlid": "__import__.bi_crm_negotiation",
+      "name": "Negotiation",
+      "sequence": 40,
+      "is_won": false
+    },
+    {
+      "xmlid": "__import__.bi_crm_won",
+      "name": "Won",
+      "sequence": 50,
+      "is_won": true
+    },
+    {
+      "xmlid": "crm.stage_lead4",
+      "name": "Won",
+      "sequence": 70,
+      "is_won": true
+    }
+  ],
+  "lost_reasons": [
+    {
+      "xmlid": "crm.lost_reason_1",
+      "name": "Too expensive"
+    },
+    {
+      "xmlid": "crm.lost_reason_2",
+      "name": "We don't have people/skills"
+    },
+    {
+      "xmlid": "crm.lost_reason_3",
+      "name": "Not enough stock"
+    },
+    {
+      "xmlid": "__import__.bi_loss_price",
+      "name": "Price"
+    },
+    {
+      "xmlid": "__import__.bi_loss_timing",
+      "name": "Timing"
+    },
+    {
+      "xmlid": "__import__.bi_loss_competitor",
+      "name": "Competitor"
+    },
+    {
+      "xmlid": "__import__.bi_loss_no_need",
+      "name": "No purchasing need"
+    }
+  ],
+  "sources": [
+    {
+      "xmlid": "utm.utm_source_google",
+      "name": "Google"
+    },
+    {
+      "xmlid": "utm.utm_source_mailing",
+      "name": "Mass Mailing"
+    },
+    {
+      "xmlid": "utm.utm_source_newsletter",
+      "name": "Newsletter"
+    },
+    {
+      "xmlid": "utm.utm_source_monster",
+      "name": "Monster"
+    },
+    {
+      "xmlid": "utm.utm_source_glassdoor",
+      "name": "Glassdoor"
+    },
+    {
+      "xmlid": "utm.utm_source_craigslist",
+      "name": "Craigslist"
+    },
+    {
+      "xmlid": "utm.utm_source_survey",
+      "name": "Survey"
+    },
+    {
+      "xmlid": "utm.utm_source_referral",
+      "name": "Referral"
+    },
+    {
+      "xmlid": "utm.utm_source_livechat",
+      "name": "Livechat"
+    },
+    {
+      "xmlid": "utm.utm_source_facebook",
+      "name": "Facebook"
+    },
+    {
+      "xmlid": "utm.utm_source_twitter",
+      "name": "X"
+    },
+    {
+      "xmlid": "utm.utm_source_linkedin",
+      "name": "LinkedIn"
+    },
+    {
+      "xmlid": "utm.utm_source_instagram",
+      "name": "Instagram"
+    },
+    {
+      "xmlid": "utm.utm_source_youtube",
+      "name": "YouTube"
+    },
+    {
+      "xmlid": "__import__.bi_source_prophet",
+      "name": "Daily Prophet / Gazette du Sorcier"
+    },
+    {
+      "xmlid": "__import__.bi_source_owl",
+      "name": "Owl Post / Courrier hibou"
+    },
+    {
+      "xmlid": "__import__.bi_source_referral",
+      "name": "Customer referral"
+    },
+    {
+      "xmlid": "__import__.bi_source_web",
+      "name": "Online shop"
+    }
+  ],
+  "media": [
+    {
+      "xmlid": "utm.utm_medium_direct",
+      "name": "Direct"
+    },
+    {
+      "xmlid": "utm.utm_medium_email",
+      "name": "Email"
+    },
+    {
+      "xmlid": "__import__.bi_medium_email",
+      "name": "Email [2]"
+    },
+    {
+      "xmlid": "utm.utm_medium_phone",
+      "name": "Phone"
+    },
+    {
+      "xmlid": "__import__.bi_medium_print",
+      "name": "Print"
+    },
+    {
+      "xmlid": "__import__.bi_medium_referral",
+      "name": "Referral"
+    },
+    {
+      "xmlid": "utm.utm_medium_social_media",
+      "name": "Social Media"
+    },
+    {
+      "xmlid": "__import__.bi_medium_web",
+      "name": "Web"
+    },
+    {
+      "xmlid": "utm.utm_medium_website",
+      "name": "Website"
+    }
+  ],
+  "campaigns": [
+    {
+      "xmlid": "__import__.bi_campaign_school",
+      "name": "Back to Hogwarts / Rentree scolaire"
+    },
+    {
+      "xmlid": "__import__.bi_campaign_frogs",
+      "name": "Chocogrenouilles 2020 special campaign"
+    }
+  ],
+  "analytic_accounts": [
+    {
+      "xmlid": "__import__.analytic_apothecary",
+      "name": "Apothecary",
+      "plan": "Product Lines"
+    },
+    {
+      "xmlid": "__import__.analytic_magical_gear",
+      "name": "Magical Gear",
+      "plan": "Product Lines"
+    },
+    {
+      "xmlid": "__import__.analytic_production",
+      "name": "Manufactured",
+      "plan": "Production type"
+    },
+    {
+      "xmlid": "__import__.analytic_consu",
+      "name": "Purchased",
+      "plan": "Production type"
+    }
+  ]
+}

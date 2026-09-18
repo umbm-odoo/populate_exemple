@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="blueprint_pilot" model="populate.blueprint">
+        <field name="name">Wingardium Odoosa BI - 1% pilot (1,000 orders)</field>
+        <field name="definition_xml" type="xml">
+            <create model="crm.lead" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" count="609" id="won_leads">
+                        <value name="_row" generator="oxp.subset_row" subset="won_leads"/>
+                        <field name="name" eval="'Opportunity ' + _row['order_name']"/>
+                        <field name="type" eval="'opportunity'"/>
+                        <field name="partner_id" eval="env.ref('__import__.' + _row['customer_xmlid']).id"/>
+                        <field name="team_id" eval="env.ref('__import__.' + _row['team']).id"/>
+                        <field name="user_id" eval="env.ref('__import__.' + _row['user']).id"/>
+                        <field name="source_id" eval="env.ref('__import__.' + _row['source']).id"/>
+                        <field name="medium_id" eval="env.ref('__import__.' + _row['medium']).id"/>
+                        <field name="stage_id" eval="env.ref('__import__.' + 'bi_crm_new').id"/>
+            </create>
+
+            <create model="crm.lead" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" count="56" id="lost_leads">
+                        <value name="_row" generator="oxp.subset_row" subset="lost_leads"/>
+                        <field name="name" eval="'Opportunity ' + _row['order_name']"/>
+                        <field name="type" eval="'opportunity'"/>
+                        <field name="partner_id" eval="env.ref('__import__.' + _row['customer_xmlid']).id"/>
+                        <field name="team_id" eval="env.ref('__import__.' + _row['team']).id"/>
+                        <field name="user_id" eval="env.ref('__import__.' + _row['user']).id"/>
+                        <field name="source_id" eval="env.ref('__import__.' + _row['source']).id"/>
+                        <field name="medium_id" eval="env.ref('__import__.' + _row['medium']).id"/>
+                        <field name="stage_id" eval="env.ref('__import__.' + 'bi_crm_new').id"/>
+            </create>
+
+            <create model="crm.lead" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" count="35" id="open_leads">
+                        <value name="_row" generator="oxp.subset_row" subset="open_leads"/>
+                        <field name="name" eval="'Opportunity ' + _row['order_name']"/>
+                        <field name="type" eval="'opportunity'"/>
+                        <field name="partner_id" eval="env.ref('__import__.' + _row['customer_xmlid']).id"/>
+                        <field name="team_id" eval="env.ref('__import__.' + _row['team']).id"/>
+                        <field name="user_id" eval="env.ref('__import__.' + _row['user']).id"/>
+                        <field name="source_id" eval="env.ref('__import__.' + _row['source']).id"/>
+                        <field name="medium_id" eval="env.ref('__import__.' + _row['medium']).id"/>
+                        <field name="stage_id" eval="env.ref('__import__.' + 'bi_crm_new').id"/>
+            </create>
+
+            <create model="sale.order" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" count="830" id="delivered_orders">
+                        <value name="_row" generator="oxp.subset_row" subset="delivered_orders"/>
+                        <field name="partner_id" eval="env.ref('__import__.' + _row['customer_xmlid']).id"/>
+                        <field name="warehouse_id" eval="env.ref('stock.warehouse0').id if _row['warehouse_code'] == 'BE' else env.ref('__import__.bi_wh_' + _row['warehouse_code'].lower()).id"/>
+                        <field name="date_order" eval="_row['quotation_date']"/>
+                        <field name="team_id" eval="env.ref('__import__.' + _row['team']).id"/>
+                        <field name="user_id" eval="env.ref('__import__.' + _row['user']).id"/>
+                        <field name="opportunity_id" eval="env['crm.lead'].search([('name','=','Opportunity ' + _row['order_name'])], limit=1).id if _row['linked'] else False"/>
+                        <field name="source_id" eval="env.ref('__import__.' + _row['source']).id if _row['linked'] else False"/>
+                        <field name="medium_id" eval="env.ref('__import__.' + _row['medium']).id if _row['linked'] else False"/>
+            </create>
+
+            <create model="sale.order" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" count="20" id="awaiting_orders">
+                        <value name="_row" generator="oxp.subset_row" subset="awaiting_orders"/>
+                        <field name="partner_id" eval="env.ref('__import__.' + _row['customer_xmlid']).id"/>
+                        <field name="warehouse_id" eval="env.ref('stock.warehouse0').id if _row['warehouse_code'] == 'BE' else env.ref('__import__.bi_wh_' + _row['warehouse_code'].lower()).id"/>
+                        <field name="date_order" eval="_row['quotation_date']"/>
+                        <field name="team_id" eval="env.ref('__import__.' + _row['team']).id"/>
+                        <field name="user_id" eval="env.ref('__import__.' + _row['user']).id"/>
+                        <field name="opportunity_id" eval="env['crm.lead'].search([('name','=','Opportunity ' + _row['order_name'])], limit=1).id if _row['linked'] else False"/>
+                        <field name="source_id" eval="env.ref('__import__.' + _row['source']).id if _row['linked'] else False"/>
+                        <field name="medium_id" eval="env.ref('__import__.' + _row['medium']).id if _row['linked'] else False"/>
+            </create>
+
+            <create model="sale.order" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" count="80" id="cancelled_before_orders">
+                        <value name="_row" generator="oxp.subset_row" subset="cancelled_before_orders"/>
+                        <field name="partner_id" eval="env.ref('__import__.' + _row['customer_xmlid']).id"/>
+                        <field name="warehouse_id" eval="env.ref('stock.warehouse0').id if _row['warehouse_code'] == 'BE' else env.ref('__import__.bi_wh_' + _row['warehouse_code'].lower()).id"/>
+                        <field name="date_order" eval="_row['quotation_date']"/>
+                        <field name="team_id" eval="env.ref('__import__.' + _row['team']).id"/>
+                        <field name="user_id" eval="env.ref('__import__.' + _row['user']).id"/>
+                        <field name="opportunity_id" eval="env['crm.lead'].search([('name','=','Opportunity ' + _row['order_name'])], limit=1).id if _row['linked'] else False"/>
+                        <field name="source_id" eval="env.ref('__import__.' + _row['source']).id if _row['linked'] else False"/>
+                        <field name="medium_id" eval="env.ref('__import__.' + _row['medium']).id if _row['linked'] else False"/>
+            </create>
+
+            <create model="sale.order" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" count="20" id="cancelled_after_orders">
+                        <value name="_row" generator="oxp.subset_row" subset="cancelled_after_orders"/>
+                        <field name="partner_id" eval="env.ref('__import__.' + _row['customer_xmlid']).id"/>
+                        <field name="warehouse_id" eval="env.ref('stock.warehouse0').id if _row['warehouse_code'] == 'BE' else env.ref('__import__.bi_wh_' + _row['warehouse_code'].lower()).id"/>
+                        <field name="date_order" eval="_row['quotation_date']"/>
+                        <field name="team_id" eval="env.ref('__import__.' + _row['team']).id"/>
+                        <field name="user_id" eval="env.ref('__import__.' + _row['user']).id"/>
+                        <field name="opportunity_id" eval="env['crm.lead'].search([('name','=','Opportunity ' + _row['order_name'])], limit=1).id if _row['linked'] else False"/>
+                        <field name="source_id" eval="env.ref('__import__.' + _row['source']).id if _row['linked'] else False"/>
+                        <field name="medium_id" eval="env.ref('__import__.' + _row['medium']).id if _row['linked'] else False"/>
+            </create>
+
+            <create model="sale.order" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" count="50" id="open_orders">
+                        <value name="_row" generator="oxp.subset_row" subset="open_orders"/>
+                        <field name="partner_id" eval="env.ref('__import__.' + _row['customer_xmlid']).id"/>
+                        <field name="warehouse_id" eval="env.ref('stock.warehouse0').id if _row['warehouse_code'] == 'BE' else env.ref('__import__.bi_wh_' + _row['warehouse_code'].lower()).id"/>
+                        <field name="date_order" eval="_row['quotation_date']"/>
+                        <field name="team_id" eval="env.ref('__import__.' + _row['team']).id"/>
+                        <field name="user_id" eval="env.ref('__import__.' + _row['user']).id"/>
+                        <field name="opportunity_id" eval="env['crm.lead'].search([('name','=','Opportunity ' + _row['order_name'])], limit=1).id if _row['linked'] else False"/>
+                        <field name="source_id" eval="env.ref('__import__.' + _row['source']).id if _row['linked'] else False"/>
+                        <field name="medium_id" eval="env.ref('__import__.' + _row['medium']).id if _row['linked'] else False"/>
+            </create>
+
+            <create model="sale.order.line" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" count="3274" id="order_lines">
+                        <value name="_row" generator="oxp.subset_row" subset="all_lines"/>
+                        <field name="order_id" generator="relation.one" domain="[('name', '=', _row['order_name'])]"/>
+                        <field name="product_id" eval="env.ref('__import__.' + _row['product_xmlid']).id"/>
+                        <field name="product_uom_qty" eval="_row['qty']"/>
+                        <field name="sequence" eval="_row['sequence']"/>
+            </create>
+
+            <function model="sale.order" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" name="action_cancel" ref="cancelled_before_orders" batched="True"/>
+
+            <function model="crm.lead" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" name="_populate_lose" ref="lost_leads" batched="False">
+                        <value name="_row" generator="oxp.subset_row" subset="lost_leads"/>
+                        <arg name="lost_reason_id" eval="env.ref('__import__.' + _row['lost_reason']).id"/>
+                        <arg name="date" eval="_row['lost_date']"/>
+            </function>
+
+            <function model="sale.order" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" name="_populate_confirm" ref="cancelled_after_orders" batched="False">
+                        <value name="_row" generator="oxp.subset_row" subset="cancelled_after_orders"/>
+                        <arg name="date" eval="_row['confirm_date']"/>
+            </function>
+
+            <function model="crm.lead" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" name="_populate_win" ref="won_leads" batched="False">
+                        <value name="_row" generator="oxp.subset_row" subset="won_leads"/>
+                        <arg name="date" eval="_row['confirm_date']"/>
+            </function>
+
+            <function model="sale.order" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" name="_populate_cancel" ref="cancelled_after_orders" batched="True"/>
+
+            <function model="sale.order" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" name="_populate_confirm" ref="delivered_orders" batched="False">
+                        <value name="_row" generator="oxp.subset_row" subset="delivered_orders"/>
+                        <arg name="date" eval="_row['confirm_date']"/>
+            </function>
+
+            <function model="purchase.order" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" name="_populate_confirm" domain="[('state', '=', 'draft')]" batched="False">
+                        <value name="_row" generator="oxp.by_name_row"/>
+                        <arg name="date" eval="_row['po_confirm_date']"/>
+            </function>
+
+            <function model="mrp.production" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" name="_populate_produce" domain="[('state', 'not in', ('done', 'cancel'))]" batched="False">
+                        <value name="_row" generator="oxp.by_name_row"/>
+                        <arg name="date_start" eval="_row['mo_start_date']"/>
+                        <arg name="date_finished" eval="_row['mo_finish_date']"/>
+            </function>
+
+            <function model="stock.picking" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" name="_populate_validate"
+                      domain="[('state', 'not in', ('done', 'cancel')), ('picking_type_id.code', '=', 'incoming')]" batched="False">
+                        <value name="_row" generator="oxp.by_name_row"/>
+                        <arg name="date" eval="_row['po_receive_date']"/>
+            </function>
+
+            <function model="stock.picking" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" name="_populate_validate"
+                      domain="[('state', 'not in', ('done', 'cancel', 'waiting')), ('picking_type_id.code', '=', 'internal')]" batched="False">
+                        <value name="_row" generator="oxp.by_name_row"/>
+                        <arg name="date" eval="_row['dispatch_date']"/>
+            </function>
+
+            <function model="stock.picking" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" name="_populate_validate"
+                      domain="[('state', 'not in', ('done', 'cancel', 'waiting')), ('picking_type_id.code', '=', 'internal')]" batched="False">
+                        <value name="_row" generator="oxp.by_name_row"/>
+                        <arg name="date" eval="_row['transit_receive_date']"/>
+            </function>
+
+            <function model="stock.picking" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" name="_populate_validate"
+                      domain="[('state', 'not in', ('done', 'cancel')), ('picking_type_id.code', '=', 'outgoing')]" batched="False">
+                        <value name="_row" generator="oxp.by_name_row"/>
+                        <arg name="date" eval="_row['delivery_actual_date']"/>
+            </function>
+
+            <function model="purchase.order" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" name="_populate_confirm" domain="[('state', '=', 'draft')]" batched="False">
+                        <value name="_row" generator="oxp.by_name_row"/>
+                        <arg name="date" eval="_row['po_confirm_date']"/>
+            </function>
+
+            <function model="mrp.production" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" name="_populate_produce" domain="[('state', 'not in', ('done', 'cancel'))]" batched="False">
+                        <value name="_row" generator="oxp.by_name_row"/>
+                        <arg name="date_start" eval="_row['mo_start_date']"/>
+                        <arg name="date_finished" eval="_row['mo_finish_date']"/>
+            </function>
+
+            <function model="stock.picking" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" name="_populate_validate"
+                      domain="[('state', 'not in', ('done', 'cancel')), ('picking_type_id.code', '=', 'incoming')]" batched="False">
+                        <value name="_row" generator="oxp.by_name_row"/>
+                        <arg name="date" eval="_row['po_receive_date']"/>
+            </function>
+
+            <function model="stock.picking" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" name="_populate_validate"
+                      domain="[('state', 'not in', ('done', 'cancel', 'waiting')), ('picking_type_id.code', '=', 'internal')]" batched="False">
+                        <value name="_row" generator="oxp.by_name_row"/>
+                        <arg name="date" eval="_row['dispatch_date']"/>
+            </function>
+
+            <function model="stock.picking" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" name="_populate_validate"
+                      domain="[('state', 'not in', ('done', 'cancel', 'waiting')), ('picking_type_id.code', '=', 'internal')]" batched="False">
+                        <value name="_row" generator="oxp.by_name_row"/>
+                        <arg name="date" eval="_row['transit_receive_date']"/>
+            </function>
+
+            <function model="stock.picking" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" name="_populate_validate"
+                      domain="[('state', 'not in', ('done', 'cancel')), ('picking_type_id.code', '=', 'outgoing')]" batched="False">
+                        <value name="_row" generator="oxp.by_name_row"/>
+                        <arg name="date" eval="_row['delivery_actual_date']"/>
+            </function>
+
+            <function model="sale.order" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" name="_create_invoices" ref="delivered_orders" batched="False"/>
+
+            <function model="account.move" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" name="_populate_post"
+                      domain="[('state', '=', 'draft'), ('move_type', '=', 'out_invoice')]" batched="False">
+                        <value name="_row" generator="oxp.by_name_row"/>
+                        <arg name="date" eval="_row['invoice_date']"/>
+            </function>
+
+            <function model="account.move" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" name="_populate_register_payment"
+                      domain="[('state', '=', 'posted'), ('payment_state', 'not in', ('paid', 'in_payment', 'reversed')), ('move_type', '=', 'out_invoice'), ('invoice_origin', 'not in', ['S00663', 'S00680', 'S00720', 'S00746', 'S00750', 'S00792', 'S00793', 'S00795', 'S00800', 'S00803', 'S00805', 'S00807', 'S00808', 'S00809', 'S00810', 'S00816', 'S00817', 'S00818', 'S00819', 'S00820', 'S00821', 'S00823', 'S00824', 'S00825', 'S00826', 'S00827', 'S00828', 'S00829', 'S00830'])]" batched="False">
+                        <value name="_row" generator="oxp.by_name_row"/>
+                        <arg name="date" eval="_row['payment_date']"/>
+            </function>
+
+            <function model="sale.order" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" name="_populate_confirm" ref="awaiting_orders" batched="False">
+                        <value name="_row" generator="oxp.subset_row" subset="awaiting_orders"/>
+                        <arg name="date" eval="_row['confirm_date']"/>
+            </function>
+
+            <function model="purchase.order" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" name="_populate_confirm" domain="[('state', '=', 'draft')]" batched="False">
+                        <value name="_row" generator="oxp.by_name_row"/>
+                        <arg name="date" eval="_row['po_confirm_date']"/>
+            </function>
+
+            <function model="mrp.production" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" name="_populate_produce"
+                      domain="[('state', 'not in', ('done', 'cancel')), ('origin', 'not ilike', 'S00834'), ('origin', 'not ilike', 'S00837'), ('origin', 'not ilike', 'S00838'), ('origin', 'not ilike', 'S00839'), ('origin', 'not ilike', 'S00846'), ('origin', 'not ilike', 'S00848')]" batched="False">
+                        <value name="_row" generator="oxp.by_name_row"/>
+                        <arg name="date_start" eval="_row['mo_start_date']"/>
+                        <arg name="date_finished" eval="_row['mo_finish_date']"/>
+            </function>
+
+            <function model="stock.picking" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" name="_populate_validate"
+                      domain="[('state', 'not in', ('done', 'cancel')), ('picking_type_id.code', '=', 'incoming'), ('origin', 'not ilike', 'S00832'), ('origin', 'not ilike', 'S00833'), ('origin', 'not ilike', 'S00836'), ('origin', 'not ilike', 'S00841')]" batched="False">
+                        <value name="_row" generator="oxp.by_name_row"/>
+                        <arg name="date" eval="_row['po_receive_date']"/>
+            </function>
+
+            <function model="stock.picking" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" name="_populate_validate"
+                      domain="[('state', 'not in', ('done', 'cancel', 'waiting')), ('picking_type_id.code', '=', 'internal'), ('origin', 'not ilike', 'S00834'), ('origin', 'not ilike', 'S00837'), ('origin', 'not ilike', 'S00838'), ('origin', 'not ilike', 'S00839'), ('origin', 'not ilike', 'S00846'), ('origin', 'not ilike', 'S00848'), ('origin', 'not ilike', 'S00832'), ('origin', 'not ilike', 'S00833'), ('origin', 'not ilike', 'S00836'), ('origin', 'not ilike', 'S00841')]" batched="False">
+                        <value name="_row" generator="oxp.by_name_row"/>
+                        <arg name="date" eval="_row['dispatch_date']"/>
+            </function>
+        </field>
+    </record>
+</odoo>

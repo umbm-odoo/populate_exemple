@@ -13,9 +13,11 @@ class CrmLead(models.Model):
     _inherit = 'crm.lead'
 
     def _populate_win(self, date):
+        date = fields.Datetime.to_datetime(date)
         self.action_set_won()
         self.write({'date_closed': date})
 
     def _populate_lose(self, lost_reason_id, date):
+        date = fields.Datetime.to_datetime(date)
         self.action_set_lost(lost_reason_id=lost_reason_id)
         self.write({'date_closed': date})

@@ -1,4 +1,4 @@
-from odoo import models
+from odoo import fields, models
 
 
 class AccountMove(models.Model):
@@ -6,11 +6,13 @@ class AccountMove(models.Model):
     _inherit = 'account.move'
 
     def _populate_post(self, date):
+        date = fields.Date.to_date(date)
         self.write({'invoice_date': date})
         self.action_post()
         self.with_context(skip_readonly_check=True).write({'date': date, 'invoice_date': date})
 
     def _populate_register_payment(self, date):
+        date = fields.Date.to_date(date)
         wizard = self.env['account.payment.register'].with_context(
             active_model='account.move', active_ids=self.ids,
         ).create({'payment_date': date})
