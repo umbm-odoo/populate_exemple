@@ -13,6 +13,7 @@
                         <field name="source_id" eval="env.ref('__import__.' + _row['source']).id"/>
                         <field name="medium_id" eval="env.ref('__import__.' + _row['medium']).id"/>
                         <field name="stage_id" eval="env.ref('__import__.' + 'bi_crm_new').id"/>
+                        <field name="campaign_id" eval="env.ref('__import__.' + _row['campaign']).id if _row.get('campaign') else False"/>
             </create>
 
             <create model="crm.lead" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" count="56" id="lost_leads">
@@ -25,6 +26,7 @@
                         <field name="source_id" eval="env.ref('__import__.' + _row['source']).id"/>
                         <field name="medium_id" eval="env.ref('__import__.' + _row['medium']).id"/>
                         <field name="stage_id" eval="env.ref('__import__.' + 'bi_crm_new').id"/>
+                        <field name="campaign_id" eval="env.ref('__import__.' + _row['campaign']).id if _row.get('campaign') else False"/>
             </create>
 
             <create model="crm.lead" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" count="35" id="open_leads">
@@ -37,7 +39,49 @@
                         <field name="source_id" eval="env.ref('__import__.' + _row['source']).id"/>
                         <field name="medium_id" eval="env.ref('__import__.' + _row['medium']).id"/>
                         <field name="stage_id" eval="env.ref('__import__.' + 'bi_crm_new').id"/>
+                        <field name="campaign_id" eval="env.ref('__import__.' + _row['campaign']).id if _row.get('campaign') else False"/>
             </create>
+
+            <create model="crm.lead" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" count="400" id="crm_lost_no_quote">
+                        <value name="_row" generator="oxp.subset_row" subset="crm_lost_no_quote"/>
+                        <field name="name" eval="'Prospect ' + str(_row['id'])"/>
+                        <field name="type" eval="'opportunity'"/>
+                        <field name="partner_id" eval="env.ref('__import__.' + _row['customer_xmlid']).id"/>
+                        <field name="team_id" eval="env.ref('__import__.' + _row['team']).id"/>
+                        <field name="user_id" eval="env.ref('__import__.' + _row['user']).id"/>
+                        <field name="source_id" eval="env.ref('__import__.' + _row['source']).id"/>
+                        <field name="medium_id" eval="env.ref('__import__.' + _row['medium']).id"/>
+                        <field name="stage_id" eval="env.ref('__import__.' + 'bi_crm_new').id"/>
+            </create>
+
+            <create model="crm.lead" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" count="60" id="crm_open_no_quote">
+                        <value name="_row" generator="oxp.subset_row" subset="crm_open_no_quote"/>
+                        <field name="name" eval="'Prospect ' + str(_row['id'])"/>
+                        <field name="type" eval="'opportunity'"/>
+                        <field name="partner_id" eval="env.ref('__import__.' + _row['customer_xmlid']).id"/>
+                        <field name="team_id" eval="env.ref('__import__.' + _row['team']).id"/>
+                        <field name="user_id" eval="env.ref('__import__.' + _row['user']).id"/>
+                        <field name="source_id" eval="env.ref('__import__.' + _row['source']).id"/>
+                        <field name="medium_id" eval="env.ref('__import__.' + _row['medium']).id"/>
+                        <field name="stage_id" eval="env.ref('__import__.' + 'bi_crm_new').id"/>
+            </create>
+
+            <create model="crm.lead" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" count="40" id="crm_unconverted_leads">
+                        <value name="_row" generator="oxp.subset_row" subset="crm_unconverted_leads"/>
+                        <field name="name" eval="'Lead ' + str(_row['id'])"/>
+                        <field name="type" eval="'lead'"/>
+                        <field name="partner_id" eval="env.ref('__import__.' + _row['customer_xmlid']).id"/>
+                        <field name="team_id" eval="env.ref('__import__.' + _row['team']).id"/>
+                        <field name="user_id" eval="env.ref('__import__.' + _row['user']).id"/>
+                        <field name="source_id" eval="env.ref('__import__.' + _row['source']).id"/>
+                        <field name="medium_id" eval="env.ref('__import__.' + _row['medium']).id"/>
+            </create>
+
+            <function model="crm.lead" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" name="_populate_lose" ref="crm_lost_no_quote" batched="False">
+                        <value name="_row" generator="oxp.subset_row" subset="crm_lost_no_quote"/>
+                        <arg name="lost_reason_id" eval="env.ref('__import__.' + _row['lost_reason']).id"/>
+                        <arg name="date" eval="_row['close_date']"/>
+            </function>
 
             <create model="sale.order" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" count="830" id="delivered_orders">
                         <value name="_row" generator="oxp.subset_row" subset="delivered_orders"/>
@@ -49,6 +93,7 @@
                         <field name="opportunity_id" eval="env['crm.lead'].search([('name','=','Opportunity ' + _row['order_name'])], limit=1).id if _row['linked'] else False"/>
                         <field name="source_id" eval="env.ref('__import__.' + _row['source']).id if _row['linked'] else False"/>
                         <field name="medium_id" eval="env.ref('__import__.' + _row['medium']).id if _row['linked'] else False"/>
+                        <field name="campaign_id" eval="env.ref('__import__.' + _row['campaign']).id if _row.get('campaign') else False"/>
             </create>
 
             <create model="sale.order" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" count="20" id="awaiting_orders">
@@ -61,6 +106,7 @@
                         <field name="opportunity_id" eval="env['crm.lead'].search([('name','=','Opportunity ' + _row['order_name'])], limit=1).id if _row['linked'] else False"/>
                         <field name="source_id" eval="env.ref('__import__.' + _row['source']).id if _row['linked'] else False"/>
                         <field name="medium_id" eval="env.ref('__import__.' + _row['medium']).id if _row['linked'] else False"/>
+                        <field name="campaign_id" eval="env.ref('__import__.' + _row['campaign']).id if _row.get('campaign') else False"/>
             </create>
 
             <create model="sale.order" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" count="80" id="cancelled_before_orders">
@@ -73,6 +119,7 @@
                         <field name="opportunity_id" eval="env['crm.lead'].search([('name','=','Opportunity ' + _row['order_name'])], limit=1).id if _row['linked'] else False"/>
                         <field name="source_id" eval="env.ref('__import__.' + _row['source']).id if _row['linked'] else False"/>
                         <field name="medium_id" eval="env.ref('__import__.' + _row['medium']).id if _row['linked'] else False"/>
+                        <field name="campaign_id" eval="env.ref('__import__.' + _row['campaign']).id if _row.get('campaign') else False"/>
             </create>
 
             <create model="sale.order" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" count="20" id="cancelled_after_orders">
@@ -85,6 +132,7 @@
                         <field name="opportunity_id" eval="env['crm.lead'].search([('name','=','Opportunity ' + _row['order_name'])], limit=1).id if _row['linked'] else False"/>
                         <field name="source_id" eval="env.ref('__import__.' + _row['source']).id if _row['linked'] else False"/>
                         <field name="medium_id" eval="env.ref('__import__.' + _row['medium']).id if _row['linked'] else False"/>
+                        <field name="campaign_id" eval="env.ref('__import__.' + _row['campaign']).id if _row.get('campaign') else False"/>
             </create>
 
             <create model="sale.order" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" count="50" id="open_orders">
@@ -97,6 +145,7 @@
                         <field name="opportunity_id" eval="env['crm.lead'].search([('name','=','Opportunity ' + _row['order_name'])], limit=1).id if _row['linked'] else False"/>
                         <field name="source_id" eval="env.ref('__import__.' + _row['source']).id if _row['linked'] else False"/>
                         <field name="medium_id" eval="env.ref('__import__.' + _row['medium']).id if _row['linked'] else False"/>
+                        <field name="campaign_id" eval="env.ref('__import__.' + _row['campaign']).id if _row.get('campaign') else False"/>
             </create>
 
             <create model="sale.order.line" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" count="3271" id="order_lines">
@@ -105,6 +154,8 @@
                         <field name="product_id" eval="env.ref('__import__.' + _row['product_xmlid']).id"/>
                         <field name="product_uom_qty" eval="_row['qty']"/>
                         <field name="sequence" eval="_row['sequence']"/>
+                        <field name="price_unit" eval="_row['price_unit']"/>
+                        <field name="discount" eval="_row['discount'] * 100"/>
             </create>
 
             <function model="sale.order" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" name="action_cancel" ref="cancelled_before_orders" batched="True"/>
@@ -244,6 +295,9 @@
                         <value name="_row" generator="oxp.by_name_row"/>
                         <arg name="date" eval="_row['dispatch_date']"/>
             </function>
+
+            <function model="purchase.order" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" name="_populate_bill_and_pay"
+                      domain="[('state', '=', 'purchase'), ('invoice_status', '=', 'to invoice')]" batched="False"/>
         </field>
     </record>
 </odoo>

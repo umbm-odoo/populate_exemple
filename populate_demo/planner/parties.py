@@ -22,11 +22,17 @@ def eligible_pool(parties: dict[str, Party], *, bucket: str | None, year: int) -
     return pool
 
 
-def pick_customer(customers: dict[str, Party], *, bucket: str, year: int, rng: random.Random) -> Party:
+def pick_customer(customers: dict[str, Party], *, bucket: str | None, year: int, rng: random.Random) -> Party:
     """Pick a customer, biasing toward the 20% corporate share only where both
     individuals and companies are actually eligible (spec's own caveat) -
     otherwise whichever type exists is used exclusively (true before 2021,
-    when every Phase 1 customer happens to be a company)."""
+    when every Phase 1 customer happens to be a company).
+
+    ``bucket=None`` picks from every eligible customer regardless of
+    destination region - used for CRM-only records with no shipping
+    destination of their own (unconverted leads, opportunities lost before
+    ever reaching a quotation).
+    """
     pool = eligible_pool(customers, bucket=bucket, year=year)
     if not pool:
         raise ValueError(f"No eligible customer for bucket={bucket!r} year={year}.")

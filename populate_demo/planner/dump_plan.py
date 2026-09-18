@@ -18,12 +18,13 @@ from __future__ import annotations
 import json
 import os
 import sys
-from datetime import date, datetime
+from datetime import UTC, date, datetime
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from planner.plan import build_plan  # noqa: E402
+from planner.config import CUTOFF, ODOO_CORE_COMMIT, ODOO_ENTERPRISE_COMMIT, TIMEZONE  # noqa: E402
 
 OUTPUT_PATH = Path(__file__).parent.parent / 'populate' / 'data' / 'pilot_plan.json'
 # Override with PILOT_SCALE=0.0012 for a fast ~120-order iteration cycle
@@ -71,7 +72,7 @@ def _processing_sort_key(order: dict):
 
 
 def main():
-    orders = build_plan(SCALE, SEED)
+    orders, extra_leads = build_plan(SCALE, SEED)
 
     subsets: dict[str, list[dict]] = {}
     by_name: dict[str, dict] = {}
@@ -93,6 +94,14 @@ def main():
     subsets['lost_leads'] = [o for o in orders if o['linked'] and o['outcome'] == 'cancelled_before_confirm']
     subsets['open_leads'] = [o for o in orders if o['linked'] and o['outcome'] == 'open']
 
+    # Spec section 8's three order-unlinked CRM categories - no sale order
+    # behind any of these, so no order_name/by_name entry is needed; each
+    # is only ever targeted positionally (oxp.subset_row), same as the
+    # linked won/lost/open leads above.
+    subsets['crm_lost_no_quote'] = [lead for lead in extra_leads if lead['category'] == 'lost_no_quote']
+    subsets['crm_open_no_quote'] = [lead for lead in extra_leads if lead['category'] == 'open_no_quote']
+    subsets['crm_unconverted_leads'] = [lead for lead in extra_leads if lead['category'] == 'unconverted_leads']
+
     all_lines = []
     for order in orders:
         for seq, line in enumerate(order['lines'], start=1):
@@ -101,12 +110,27 @@ def main():
                 'product_xmlid': line['product_xmlid'],
                 'qty': line['qty'],
                 'sequence': seq,
+                'price_unit': line['price_unit'],
+                'discount': order['discount'],
             })
     subsets['all_lines'] = all_lines
 
     payload = {
         'seed': SEED,
         'scale': SCALE,
+        # Spec section 13: "Save the pinned revisions, blueprint version,
+        # configuration, timezone, cutoff, and seed with the run." This
+        # travels with the plan JSON itself, so it's always right next to
+        # the data it describes.
+        'manifest': {
+            'generated_at': datetime.now(UTC).isoformat(),
+            'odoo_core_commit': ODOO_CORE_COMMIT,
+            'odoo_enterprise_commit': ODOO_ENTERPRISE_COMMIT,
+            'timezone': TIMEZONE,
+            'cutoff': CUTOFF.isoformat(),
+            'seed': SEED,
+            'scale': SCALE,
+        },
         'by_name': _serialise(by_name),
         'subsets': _serialise(subsets),
     }

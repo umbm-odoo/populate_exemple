@@ -69,8 +69,37 @@ def main():
             f'<field name="source_id" eval="{ref("_row[\'source\']")}"/>',
             f'<field name="medium_id" eval="{ref("_row[\'medium\']")}"/>',
             f'<field name="stage_id" eval="{ref("\'bi_crm_new\'")}"/>',
+            f'<field name="campaign_id" eval="{ref("_row[\'campaign\']")} if _row.get(\'campaign\') else False"/>',
         ])
         blocks.append(f'<create model="crm.lead" count="{len(subsets[subset])}" id="{subset}">\n{ind(fields)}\n</create>')
+
+    # === Extra order-unlinked CRM volumes (spec section 8) =====================
+    # No sale order behind any of these - "name" can't reuse an order_name.
+    for subset, name_prefix, lead_type in (
+        ('crm_lost_no_quote', 'Prospect', 'opportunity'),
+        ('crm_open_no_quote', 'Prospect', 'opportunity'),
+        ('crm_unconverted_leads', 'Lead', 'lead'),
+    ):
+        fields = "\n".join([
+            f'<value name="_row" generator="oxp.subset_row" subset="{subset}"/>',
+            f"<field name=\"name\" eval=\"'{name_prefix} ' + str(_row['id'])\"/>",
+            f"<field name=\"type\" eval=\"'{lead_type}'\"/>",
+            f'<field name="partner_id" eval="{ref("_row[\'customer_xmlid\']")}"/>',
+            f'<field name="team_id" eval="{ref("_row[\'team\']")}"/>',
+            f'<field name="user_id" eval="{ref("_row[\'user\']")}"/>',
+            f'<field name="source_id" eval="{ref("_row[\'source\']")}"/>',
+            f'<field name="medium_id" eval="{ref("_row[\'medium\']")}"/>',
+        ] + ([f'<field name="stage_id" eval="{ref("\'bi_crm_new\'")}"/>'] if lead_type == 'opportunity' else []))
+        blocks.append(f'<create model="crm.lead" count="{len(subsets[subset])}" id="{subset}">\n{ind(fields)}\n</create>')
+
+    blocks.append(
+        '<function model="crm.lead" name="_populate_lose" ref="crm_lost_no_quote" batched="False">\n'
+        + ind(
+            '<value name="_row" generator="oxp.subset_row" subset="crm_lost_no_quote"/>\n'
+            f'<arg name="lost_reason_id" eval="{ref("_row[\'lost_reason\']")}"/>\n'
+            "<arg name=\"date\" eval=\"_row['close_date']\"/>",
+        ) + '\n</function>',
+    )
 
     # === Sale orders (5 outcome groups) ========================================
     for subset in ('delivered_orders', 'awaiting_orders', 'cancelled_before_orders', 'cancelled_after_orders', 'open_orders'):
@@ -87,6 +116,7 @@ def main():
             f"env['crm.lead'].search([('name','=',{lead_name_expr})], limit=1).id if _row['linked'] else False\"/>",
             f'<field name="source_id" eval="{ref("_row[\'source\']")} if _row[\'linked\'] else False"/>',
             f'<field name="medium_id" eval="{ref("_row[\'medium\']")} if _row[\'linked\'] else False"/>',
+            f'<field name="campaign_id" eval="{ref("_row[\'campaign\']")} if _row.get(\'campaign\') else False"/>',
         ])
         blocks.append(f'<create model="sale.order" count="{len(subsets[subset])}" id="{subset}">\n{ind(fields)}\n</create>')
 
@@ -97,6 +127,8 @@ def main():
         f'<field name="product_id" eval="{ref("_row[\'product_xmlid\']")}"/>',
         "<field name=\"product_uom_qty\" eval=\"_row['qty']\"/>",
         "<field name=\"sequence\" eval=\"_row['sequence']\"/>",
+        "<field name=\"price_unit\" eval=\"_row['price_unit']\"/>",
+        "<field name=\"discount\" eval=\"_row['discount'] * 100\"/>",
     ])
     blocks.append(f'<create model="sale.order.line" count="{len(subsets["all_lines"])}" id="order_lines">\n{ind(fields)}\n</create>')
 
@@ -269,6 +301,14 @@ def main():
             '<value name="_row" generator="oxp.by_name_row"/>\n'
             "<arg name=\"date\" eval=\"_row['dispatch_date']\"/>",
         ) + '\n</function>',
+    )
+
+    # === Vendor bills and payments (spec section 11) ===========================
+    # Every fully-received, not-yet-invoiced PO by this point - both direct-buy
+    # resale purchases and component purchases from every order group above.
+    blocks.append(
+        '<function model="purchase.order" name="_populate_bill_and_pay"\n'
+        "          domain=\"[('state', '=', 'purchase'), ('invoice_status', '=', 'to invoice')]\" batched=\"False\"/>",
     )
 
     blocks = [

@@ -10,9 +10,10 @@ from __future__ import annotations
 import random
 from datetime import datetime
 
-from . import attribution, basket, seasonal as cal, crm, outstanding, parties, quotas, regions, schedule
-from .config import CUTOFF, OPEN_QUOTATION_WINDOW_DAYS, OUTSTANDING_WINDOW_DAYS, SCENARIO_START
-from .eligibility import build_customers, build_suppliers, load_snapshot
+from . import attribution, basket, seasonal as cal, crm, outstanding, parties, pricing, quotas, regions, schedule
+from .config import CHOCOGRENOUILLES_CAMPAIGN, CUTOFF, OPEN_QUOTATION_WINDOW_DAYS, OUTSTANDING_WINDOW_DAYS, SCENARIO_START
+from .eligibility import Party, build_customers, build_suppliers, load_snapshot
+from .rounding import largest_remainder
 
 
 def _line_is_manufactured(product_xmlid: str) -> bool:
@@ -134,7 +135,70 @@ def _resample_quotation(order: dict, year: int, rng: random.Random) -> datetime:
     return cal.sample_date_in_year(year, order['lead_family'], rng, max_date=max_date)
 
 
-def build_plan(scale: float, seed: int) -> list[dict]:
+def _extra_crm_leads(scale: float, customers: dict[str, Party], rng: random.Random) -> list[dict]:
+    """Spec section 8's three order-unlinked CRM categories: lost
+    opportunities that never reached a quotation, still-open opportunities
+    with no quotation, and unconverted leads. None of these has a sale
+    order behind it, so they're generated independently of the main order
+    loop, each with its own customer/team/rep/attribution draw.
+    """
+    counts = crm.extra_crm_volumes(scale)
+    leads: list[dict] = []
+    seq = 0
+
+    # Lost-without-quotation: only this category isn't described as
+    # "recent" in the spec, so spread it across the whole scenario using
+    # the same year-over-year growth shape as the main order volume (the
+    # spec gives no separate annual breakdown for it).
+    years = sorted(quotas.ANNUAL)
+    year_shares = [quotas.ANNUAL[y]['all'] / quotas.ANNUAL_TOTAL['all'] for y in years]
+    lost_per_year = largest_remainder(
+        [share * counts['lost_no_quote'] for share in year_shares], counts['lost_no_quote'],
+    )
+    for year, count in zip(years, lost_per_year, strict=True):
+        for _ in range(count):
+            seq += 1
+            family = cal.sample_family(rng)
+            max_date = CUTOFF.date() if year == 2026 else None
+            create_date = cal.sample_date_in_year(year, family, rng, max_date=max_date)
+            for _attempt in range(200):
+                close_date = schedule.add_days(create_date, 1, 30, rng)
+                if close_date < CUTOFF:
+                    break
+                create_date = cal.sample_date_in_year(year, family, rng, max_date=max_date)
+            else:
+                raise RuntimeError("Could not schedule a lost-no-quote close date before cutoff.")
+            customer = parties.pick_customer(customers, bucket=None, year=year, rng=rng)
+            team, user = attribution.pick_rep(rng)
+            source, medium = attribution.pick_source(year, rng)
+            leads.append({
+                'id': seq, 'category': 'lost_no_quote', 'customer_xmlid': customer.xmlid,
+                'team': team, 'user': user, 'source': source, 'medium': medium,
+                'create_date': create_date, 'close_date': close_date,
+                'lost_reason': attribution.pick_lost_reason(rng),
+            })
+
+    # Open-without-quotation and unconverted leads: both explicitly
+    # "recent" in the spec, same 60-day window convention as open quotations.
+    for category in ('open_no_quote', 'unconverted_leads'):
+        for _ in range(counts[category]):
+            seq += 1
+            create_date = _uniform_recent_date(rng, OPEN_QUOTATION_WINDOW_DAYS)
+            year = create_date.year
+            customer = parties.pick_customer(customers, bucket=None, year=year, rng=rng)
+            team, user = attribution.pick_rep(rng)
+            source, medium = attribution.pick_source(year, rng)
+            leads.append({
+                'id': seq, 'category': category, 'customer_xmlid': customer.xmlid,
+                'team': team, 'user': user, 'source': source, 'medium': medium,
+                'create_date': create_date,
+            })
+
+    return leads
+
+
+def build_plan(scale: float, seed: int) -> tuple[list[dict], list[dict]]:
+    """Returns (orders, extra_crm_leads) - see ``_extra_crm_leads`` for the latter."""
     rng = random.Random(seed)
     snapshot = load_snapshot()
     customers = build_customers(snapshot)
@@ -277,7 +341,9 @@ def build_plan(scale: float, seed: int) -> list[dict]:
         if order['linked']:
             order['lead_date'] = schedule.schedule_lead(order['quotation_date'], rng)
 
-    return orders
+    extra_leads = _extra_crm_leads(scale, customers, rng)
+
+    return orders, extra_leads
 
 
 def _uniform_recent_date(rng: random.Random, window_days: int) -> datetime:
@@ -312,6 +378,11 @@ def _new_order(seq, year, outcome, region, linked, rng, customers, sub_bucket=No
         lead_family=lead_family, line_count=line_count, is_company=customer.is_company,
         order_date=quotation_date.date(), rng=rng, allowed_families=allowed_families,
     )
+    # Spec section 7: "apply selling factors at quotation date ... lock the
+    # resulting line prices". Locked in now, at the order's quotation year,
+    # rather than left for Odoo to fill in from today's list price.
+    for line in lines:
+        line['price_unit'] = pricing.selling_price(line['product_xmlid'], year)
 
     team, user = attribution.pick_rep(rng)
     order = {
@@ -334,4 +405,9 @@ def _new_order(seq, year, outcome, region, linked, rng, customers, sub_bucket=No
         source, medium = attribution.pick_source(year, rng)
         order['source'] = source
         order['medium'] = medium
+    if basket.has_chocogrenouilles_spike(lines, quotation_date.date()):
+        # Spec section 7: "assign the special campaign" - independent of CRM
+        # linkage, since it marks the product/date pattern, not a marketing
+        # attribution choice.
+        order['campaign'] = CHOCOGRENOUILLES_CAMPAIGN
     return order
