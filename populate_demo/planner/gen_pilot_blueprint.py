@@ -311,6 +311,42 @@ def main():
         "          domain=\"[('state', '=', 'purchase'), ('invoice_status', '=', 'to invoice')]\" batched=\"False\"/>",
     )
 
+    # Every domain-scoped (not ref-scoped) <function> block above targets
+    # records this blueprint never <create>s directly (POs, MOs, pickings,
+    # bills - all side effects of confirming a sale order) - Populate has no
+    # way to know how many will exist by execution time, so it plans these
+    # with a placeholder record_count of 1. That means _create_subjobs()
+    # never splits them, however many records actually match at runtime:
+    # the whole domain match runs as one function job, in one transaction,
+    # with no commit until it's entirely done. At pilot scale that's a
+    # couple of seconds; at full scale it turned a purchase.order confirm
+    # job matching >100,000 records into a single several-hour, all-or-
+    # nothing transaction. Giving each one an explicit (deliberately
+    # oversized) count re-enables normal MAX_RECORD_COMMIT_SIZE-based
+    # subjob splitting - each subjob's own _get_target_records() re-queries
+    # the live domain with an offset, so overshooting the real count is
+    # normally harmless (trailing subjobs just match nothing).
+    #
+    # NOT safe for stock.picking, though, and it's excluded below: our
+    # oxp.by_name_row generator builds its row list *once*, from a single
+    # query, then feeds it positionally across every subjob in turn (all
+    # subjobs share the same generator instances - see job.py's _execute).
+    # That's fine for a domain that can only shrink as it's processed
+    # (confirming a PO removes it from 'state=draft', it can't add more
+    # drafts) - but validating a picking can *grow* the domain (backorders,
+    # a dispatch leg that only just became eligible), so a later subjob's
+    # live query can already exceed the row list a single upfront snapshot
+    # built - IndexError in oxp.by_name_row, confirmed by testing this at
+    # pilot scale before ever trying it at full scale.
+    cascade_count_estimate = len(subsets['all_lines'])
+    blocks = [
+        b if 'model="stock.picking"' in b else re.sub(
+            r'(<function\s+model="[^"]+")(?=(?:(?!ref=).)*?domain=)',
+            rf'\1 count="{cascade_count_estimate}"', b, count=1, flags=re.DOTALL,
+        )
+        for b in blocks
+    ]
+
     blocks = [
         re.sub(r'(<(?:create|function)\s+model="[^"]+")', rf'\1 context="{BULK_CONTEXT}"', b, count=1)
         for b in blocks

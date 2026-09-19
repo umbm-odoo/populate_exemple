@@ -183,12 +183,12 @@
                         <arg name="date" eval="_row['confirm_date']"/>
             </function>
 
-            <function model="purchase.order" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" name="_populate_confirm" domain="[('state', '=', 'draft')]" batched="False">
+            <function model="purchase.order" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" count="3271" name="_populate_confirm" domain="[('state', '=', 'draft')]" batched="False">
                         <value name="_row" generator="oxp.by_name_row"/>
                         <arg name="date" eval="_row['po_confirm_date']"/>
             </function>
 
-            <function model="mrp.production" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" name="_populate_produce" domain="[('state', 'not in', ('done', 'cancel'))]" batched="False">
+            <function model="mrp.production" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" count="3271" name="_populate_produce" domain="[('state', 'not in', ('done', 'cancel'))]" batched="False">
                         <value name="_row" generator="oxp.by_name_row"/>
                         <arg name="date_start" eval="_row['mo_start_date']"/>
                         <arg name="date_finished" eval="_row['mo_finish_date']"/>
@@ -218,12 +218,12 @@
                         <arg name="date" eval="_row['delivery_actual_date']"/>
             </function>
 
-            <function model="purchase.order" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" name="_populate_confirm" domain="[('state', '=', 'draft')]" batched="False">
+            <function model="purchase.order" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" count="3271" name="_populate_confirm" domain="[('state', '=', 'draft')]" batched="False">
                         <value name="_row" generator="oxp.by_name_row"/>
                         <arg name="date" eval="_row['po_confirm_date']"/>
             </function>
 
-            <function model="mrp.production" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" name="_populate_produce" domain="[('state', 'not in', ('done', 'cancel'))]" batched="False">
+            <function model="mrp.production" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" count="3271" name="_populate_produce" domain="[('state', 'not in', ('done', 'cancel'))]" batched="False">
                         <value name="_row" generator="oxp.by_name_row"/>
                         <arg name="date_start" eval="_row['mo_start_date']"/>
                         <arg name="date_finished" eval="_row['mo_finish_date']"/>
@@ -255,13 +255,13 @@
 
             <function model="sale.order" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" name="_create_invoices" ref="delivered_orders" batched="False"/>
 
-            <function model="account.move" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" name="_populate_post"
+            <function model="account.move" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" count="3271" name="_populate_post"
                       domain="[('state', '=', 'draft'), ('move_type', '=', 'out_invoice')]" batched="False">
                         <value name="_row" generator="oxp.by_name_row"/>
                         <arg name="date" eval="_row['invoice_date']"/>
             </function>
 
-            <function model="account.move" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" name="_populate_register_payment"
+            <function model="account.move" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" count="3271" name="_populate_register_payment"
                       domain="[('state', '=', 'posted'), ('payment_state', 'not in', ('paid', 'in_payment', 'reversed')), ('move_type', '=', 'out_invoice'), ('invoice_origin', 'not in', ['S00663', 'S00680', 'S00720', 'S00746', 'S00750', 'S00792', 'S00793', 'S00795', 'S00800', 'S00803', 'S00805', 'S00807', 'S00808', 'S00809', 'S00810', 'S00816', 'S00817', 'S00818', 'S00819', 'S00820', 'S00821', 'S00823', 'S00824', 'S00825', 'S00826', 'S00827', 'S00828', 'S00829', 'S00830'])]" batched="False">
                         <value name="_row" generator="oxp.by_name_row"/>
                         <arg name="date" eval="_row['payment_date']"/>
@@ -272,12 +272,12 @@
                         <arg name="date" eval="_row['confirm_date']"/>
             </function>
 
-            <function model="purchase.order" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" name="_populate_confirm" domain="[('state', '=', 'draft')]" batched="False">
+            <function model="purchase.order" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" count="3271" name="_populate_confirm" domain="[('state', '=', 'draft')]" batched="False">
                         <value name="_row" generator="oxp.by_name_row"/>
                         <arg name="date" eval="_row['po_confirm_date']"/>
             </function>
 
-            <function model="mrp.production" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" name="_populate_produce"
+            <function model="mrp.production" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" count="3271" name="_populate_produce"
                       domain="[('state', 'not in', ('done', 'cancel')), ('origin', 'not ilike', 'S00832'), ('origin', 'not ilike', 'S00836'), ('origin', 'not ilike', 'S00840'), ('origin', 'not ilike', 'S00845'), ('origin', 'not ilike', 'S00846'), ('origin', 'not ilike', 'S00847')]" batched="False">
                         <value name="_row" generator="oxp.by_name_row"/>
                         <arg name="date_start" eval="_row['mo_start_date']"/>
@@ -296,7 +296,7 @@
                         <arg name="date" eval="_row['dispatch_date']"/>
             </function>
 
-            <function model="purchase.order" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" name="_populate_bill_and_pay"
+            <function model="purchase.order" context="{'tracking_disable': True, 'mail_auto_subscribe_no_notify': True}" count="3271" name="_populate_bill_and_pay"
                       domain="[('state', '=', 'purchase'), ('invoice_status', '=', 'to invoice')]" batched="False"/>
         </field>
     </record>

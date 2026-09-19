@@ -2,7 +2,7 @@
  "seed": 20260920,
  "scale": 0.01,
  "manifest": {
-  "generated_at": "2026-09-18T19:17:24.986144+00:00",
+  "generated_at": "2026-09-19T07:17:03.009462+00:00",
   "odoo_core_commit": "f63f1cca433b182d003f0ac4eb9f8e2efaad810d",
   "odoo_enterprise_commit": "b8b09590ddb5a88f30fdd5249f4c830002abdc64",
   "timezone": "Europe/Brussels",
